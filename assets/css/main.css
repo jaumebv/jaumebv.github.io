@@ -2586,6 +2586,14 @@ input, select, textarea {
 			margin: 2.5em 0 0 2.5em;
 		}
 
+		.tiles article > a {
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+		}
+
+		.tiles article > a h2 {
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+		}
+
 			.tiles article > .image {
 				-moz-transition: -moz-transform 0.5s ease;
 				-webkit-transition: -webkit-transform 0.5s ease;
@@ -2638,7 +2646,7 @@ input, select, textarea {
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 100% 100%;
-					opacity: 0.25;
+					opacity: 0.0;
 					z-index: 2;
 				}
 
@@ -2727,6 +2735,10 @@ input, select, textarea {
 
 			.tiles article.style6 > .image:before {
 				background-color: #8499e7;
+			}
+			
+			.tiles article.style7 > .image:before {
+				background-color: #c0c0c091;
 			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
@@ -3327,3 +3339,106 @@ input, select, textarea {
 			}
 
 		}
+
+		/* Custom footer contact list */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.75em;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.contact-list i {
+  margin-right: 0.5em;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.contact-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-list a:hover {
+  color: #1abc9c; /* verde azulado bonito, puedes cambiarlo */
+}
+
+
+/* Own stuff */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* relación 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------------------
+   Transición de imagen → GIF
+   ------------------------- */
+.tiles article .image {
+  position: relative;
+  overflow: hidden;
+}
+
+.tiles article .image img.gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* se ve entero */
+  object-position: center;
+  opacity: 0;              /* oculto inicialmente */
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+
+.tiles article:hover .image img.gif {
+  opacity: 1;
+}
+
+/* -------------------------
+   Ocultar título y subtítulo al hover
+   ------------------------- */
+.tiles article > a h2,
+.tiles article > a .content {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.tiles article:hover > a h2,
+.tiles article:hover > a .content {
+  opacity: 0;
+}
+
+/* Contenedor de título y subtítulo */
+.tiles article > a h2,
+.tiles article > a .content {
+  opacity: 1 !important;              /* aseguramos que sea visible por defecto */
+  max-height: none !important;        /* anulamos max-height de Phantom */
+  transition: opacity 0.5s ease;      /* transición suave */
+}
+
+/* Al hover, ocultar ambos */
+.tiles article:hover > a h2,
+.tiles article:hover > a .content {
+  opacity: 0 !important;
+}
+
+
+
