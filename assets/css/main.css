@@ -3493,7 +3493,7 @@ html {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  border-radius: 0 0 25px 25px;
+  border-radius: 0 0 5px 5px;
   transition: padding 0.3s ease, background 0.3s ease;
 }
 
@@ -3522,7 +3522,7 @@ html {
 
 /* Para que el contenido debajo no quede tapado por la barra */
 body {
-  padding-top: 80px; /* ajustar según altura de la barra grande */
+  padding-top: 0px; /* ajustar según altura de la barra grande */
 }
 
 /* Tags para los tiles */
@@ -3539,6 +3539,102 @@ body {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
+
+
+/* ================= INTRO SECTION (PERFECT ALIGNMENT WITH TILES) ================= */
+.intro {
+  background: #ffffff;
+  text-align: left;
+  padding: 3em 0 2em 0; /* solo vertical */
+}
+
+/* replicamos las reglas de .inner del tema Phantom */
+.intro .inner {
+  width: 100%;
+  max-width: 65em;
+  margin: 0 auto;
+  padding: 0 4em;
+}
+
+/* breakpoints exactos del tema para padding responsivo */
+@media screen and (max-width: 1280px) {
+  .intro .inner {
+    padding: 0 3em;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .intro .inner {
+    padding: 0 2em;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .intro .inner {
+    padding: 0 1.5em;
+  }
+}
+
+.intro-subtitle {
+  font-size: 0.95em;
+  color: #777;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.1em;
+}
+
+.intro h1 {
+  color: #ffb6c1; /* rosa empolvado moderno */
+  font-weight: 900;
+  font-size: 2.1em;
+  margin-bottom: 0.3em;
+  letter-spacing: -0.02em;
+}
+
+
+.intro-desc {
+  color: #555;
+  font-size: 1.05em;
+  line-height: 1.5;
+  max-width: 550px;
+}
+/* ================= END INTRO SECTION ================= */
+
+/* ===== Intro: animación sincronizada con los tiles ===== */
+
+/* Estado inicial (mientras <body> tiene .is-preload) */
+.is-preload .intro,
+.is-preload .intro .intro-subtitle,
+.is-preload .intro h1,
+.is-preload .intro .intro-desc {
+  opacity: 0;
+  transform: translateY(1.5em); /* mismo desplazamiento que los tiles */
+}
+
+/* Transiciones suaves (idénticas a las de .tiles) */
+.intro,
+.intro .intro-subtitle,
+.intro h1,
+.intro .intro-desc {
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+/* delays para un efecto suave pero no más lento */
+.intro .intro-subtitle { transition-delay: 0.05s; }
+.intro h1               { transition-delay: 0.15s; }
+.intro .intro-desc      { transition-delay: 0.25s; }
+
+/* estado final tras cargar */
+.intro,
+.intro .intro-subtitle,
+.intro h1,
+.intro .intro-desc {
+  opacity: 1;
+  transform: none;
+}
+
+
+
 
 
 
