@@ -4382,10 +4382,31 @@ body {
   transition: all 0.25s ease;
 }
 
-.gameplay-btn:hover {
-  background: rgba(255,182,193,0.08);
-  transform: translateY(-2px);
+/* === FIX: Keep consistent colour on hover === */
+/* === FIXED HOVER: smooth lift without border glitch === */
+.gameplay-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.8em 1.5em;
+  font-weight: 600;
+  color: #ffb6c1;
+  border: 2px solid #ffb6c1;
+  border-radius: 10px;
+  background: transparent;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
+
+.gameplay-btn:hover {
+  transform: translateY(-3px); /* se levanta suavemente */
+  background: rgba(255,182,193,0.1); /* leve fondo rosa */
+  box-shadow: 0 4px 10px rgba(255,182,193,0.3); /* efecto de elevación */
+  color: #ffb6c1; /* mantiene el color */
+  border-color: #ffb6c1;
+}
+
 
 .gameplay-btn i {
   font-size: 1em;
@@ -4562,6 +4583,16 @@ body {
   text-transform: none !important;
   letter-spacing: 0 !important;
   word-spacing: 0 !important;
+}
+
+/* === Sync video entry animation with text === */
+.detail-block video,
+.detail-block-katto video,
+.video-container-2 video,
+.hero-2003 .video-container video {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeSlideUp 0.8s ease forwards 0.3s;
 }
 
 
