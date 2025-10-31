@@ -3379,6 +3379,7 @@ input, select, textarea {
   overflow: hidden;
 }
 
+
 .video-container iframe {
   position: absolute;
   top: 0;
@@ -3386,6 +3387,42 @@ input, select, textarea {
   width: 100%;
   height: 100%;
 }
+
+/* ================= VIDEO CONTAINER (WIDESCREEN / 16:9) ================= */
+.video-container-2 {
+  position: relative;
+  width: 100%;
+  max-width: 960px;            /* tamaño máximo ideal para 1080p */
+  margin: 3em auto;            /* centrado con espacio superior e inferior */
+  aspect-ratio: 16 / 9;        /* mantiene proporción exacta */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container-2 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* ocupa bien todo el espacio sin deformar */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #000;             /* relleno si hay bandas negras */
+}
+
+/* ================= VIDEO CONTAINER – KATTO (DETAIL SECTIONS) ================= */
+.detail-block .video video.katto-video {
+  max-width: 720px;          /* tamaño equilibrado */
+  width: 92%;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-block .video video.katto-video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
 
 /* -------------------------
    Transición de imagen → GIF
@@ -4359,6 +4396,175 @@ body {
 .gameplay-btn:hover i {
   transform: scale(1.15);
 }
+
+/* ================= DETAIL VIDEO – KATTO ================= */
+.detail-block-katto .video {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-block-katto video {
+  max-width: 70%; /* un poco más grande que el original */
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease;
+}
+
+.detail-block-katto video:hover {
+  transform: scale(1.02);
+}
+
+/* === CLEAN FADE GALLERY SLIDER FOR KATTO === */
+.gallery-slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  background: #000; /* evita el flash blanco */
+}
+
+.gallery-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease; /* más lento y suave */
+}
+
+.gallery-slider .slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.gallery-slider img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.gallery-slider img:hover {
+  transform: scale(1.02);
+}
+
+/* --- Flechas minimalistas, suaves y centradas --- */
+.gallery-prev,
+.gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  transition: background 0.25s ease, transform 0.25s ease;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-prev { left: 18px; }
+.gallery-next { right: 18px; }
+
+/* --- Transición más suave entre slides --- */
+@keyframes fadeSlide {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- FIX: altura automática del contenedor --- */
+.gallery-slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.gallery-slider .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.gallery-slider .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== GALLERY DOTS (FIXED CLIPPING ISSUE) ===== */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding-bottom: 10px;   /* deja espacio extra debajo */
+  overflow: visible;      /* evita que se recorten los dots */
+  position: relative;     /* asegura un flujo correcto bajo el slider */
+  z-index: 10;            /* evita solapamientos con el slider */
+}
+
+.gallery-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(150, 150, 150, 0.4); /* gris neutro claro */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  transform-origin: center; /* asegura que el escalado sea simétrico */
+}
+
+.gallery-dots span.active {
+  background: #ffb6c1; /* rosa principal */
+  transform: scale(1.25);
+  box-shadow: 0 0 6px rgba(255, 182, 193, 0.6); /* leve glow */
+}
+
+.gallery-dots span:hover {
+  background: rgba(255, 182, 193, 0.7);
+}
+
+/* ===== FIX: Match Gallery title with rest ===== */
+.gallery-section h2 {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+}
+
+
 
 
 
