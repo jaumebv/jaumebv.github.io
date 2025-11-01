@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Procedural Salamander AI – 2D Simulation in C++ (Raylib)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+
+      <!-- ================= HEADER ================= -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo" style="text-decoration:none;">
+            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
+            <span class="title">Back to Portfolio</span>
+          </a>
+        </div>
+      </header>
+      <!-- ================= END HEADER ================= -->
+
+      <!-- ================= HERO ================= -->
+      <section class="hero-2003">
+        <div class="inner">
+          <h1>Procedural Salamander AI</h1>
+          <p class="subtitle">2D Simulation · Raylib (C++) · 2023/24</p>
+
+          <div class="video-container-3">
+            <video autoplay loop muted playsinline>
+              <source src="images/salamander/salamander_videojugacion.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+      <!-- ================= END HERO ================= -->
+
+      <!-- ================= OVERVIEW ================= -->
+      <section id="overview" class="overview-section">
+        <div class="inner">
+          <h2>Overview</h2>
+          <p>
+            <strong>Procedural Salamander AI</strong> is a 2D simulation built in <strong>C++ using Raylib</strong> by a three-person team. 
+            Inspired by <em>Rain World</em> and similar titles, it explores how <strong>inverse kinematics</strong>, <strong>procedural animation</strong>, and <strong>AI-driven behaviours</strong> 
+            can generate lifelike, emergent movement without using traditional keyframed animation.  
+          </p>
+          <br>
+          <ul class="game-info">
+            <li><strong>Engine:</strong> Raylib (C++)</li>
+            <li><strong>Team size:</strong> 3 developers</li>
+            <li><strong>Scope:</strong> AI · Animation</li>
+            <li><strong>Year:</strong> 2023/24</li>
+            <li><strong>Project type:</strong> Academic (AI module final project)</li>
+          </ul>
+        </div>
+      </section>
+      <!-- ================= END OVERVIEW ================= -->
+
+      <!-- ================= DETAILS ================= -->
+      <section id="details" class="details-section">
+        <div class="inner">
+          <h2>Key Features</h2>
+
+          <!-- 1. Inverse Kinematics -->
+          <div class="detail-block">
+            <div class="text">
+              <h3>Inverse Kinematics for Limbs</h3>
+              <p>
+                Implemented custom 2D IK algorithms to animate the salamander’s legs without pre-made keyframes. 
+                Each limb dynamically adjusts to maintain natural poses and avoid intersections, resulting in smooth, grounded movement.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline style="max-width: 90%;">
+                <source src="images/salamander/salamander_ik.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <!-- 2. Procedural Tail -->
+          <div class="detail-block reverse">
+            <div class="text">
+              <h3>Procedural Tail and Body Motion</h3>
+              <p>
+                Developed a spring-mass physics system to simulate the salamander’s flexible tail and overall body dynamics. 
+                This system gives the creature a fluid, snake-like feel that reacts organically to movement and collisions.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline style="max-width: 90%;">
+                <source src="images/salamander/salamander_tail.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <!-- 3. Reactive Flies -->
+          <div class="detail-block">
+            <div class="text">
+              <h3>Reactive Fly Behaviour</h3>
+              <p>
+                Implemented simple AI agents for flies that wander randomly and flee when the salamander approaches. 
+                Combined with the salamander’s field-of-view “kill zone”, this creates emergent predator-prey interactions that feel spontaneous.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline style="max-width: 90%;">
+                <source src="images/salamander/salamander_flies.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- ================= END DETAILS ================= -->
+
+                  <!-- ================= PROJECT DEMO (YOUTUBE EMBED) ================= -->
+                  <section id="project-demo" class="full-gameplay">
+                    <div class="inner">
+                      <h2>Project Demo</h2>
+
+                      <div class="video-container-3" style="
+                        position: relative; 
+                        padding-bottom: 56.25%; 
+                        height: 0; 
+                        overflow: hidden; 
+                        border-radius: 14px; 
+                        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                        max-width: 900px;
+                        margin: 0 auto;
+                      ">
+                        <iframe 
+                          src="https://www.youtube.com/embed/J9gdxA2Qmjw?si=qBh4KnmQkJc1qya1&amp;controls=0" 
+                          title="Procedural Salamander AI – Demo"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen
+                          style="
+                            position: absolute; 
+                            top: 0; 
+                            left: 0; 
+                            width: 100%; 
+                            height: 100%; 
+                            border: none; 
+                            border-radius: 14px;
+                          ">
+                        </iframe>
+                      </div>
+                    </div>
+                  </section>
+                  <!-- ================= END PROJECT DEMO ================= -->
+
+
+
+
+      <!-- ================= FOOTER ================= -->
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <h2>Contact</h2>
+            <ul class="contact-list">
+              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
+              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
+              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
+              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
+            </ul>
+          </section>
+          <ul class="copyright">
+            <li>&copy; 2025 Jaume Berbel</li>
+          </ul>
+        </div>
+      </footer>
+      <!-- ================= END FOOTER ================= -->
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Gallery autoplay -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.querySelector(".gallery-slider");
+        const slides = document.querySelectorAll(".gallery-slider .slide");
+        const dotsContainer = document.querySelector(".gallery-dots");
+        let index = 0;
+        const INTERVAL_MS = 5000;
+        let timerId = null;
+
+        slides.forEach((_, i) => {
+          const dot = document.createElement("span");
+          dot.addEventListener("click", () => {
+            showSlide(i);
+            resetTimer();
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll("span");
+
+        function showSlide(i) {
+          slides.forEach(s => s.classList.remove("active"));
+          dots.forEach(d => d.classList.remove("active"));
+          slides[i].classList.add("active");
+          dots[i].classList.add("active");
+          index = i;
+        }
+
+        function nextSlide() {
+          index = (index + 1) % slides.length;
+          showSlide(index);
+        }
+
+        function startTimer() {
+          stopTimer();
+          timerId = setInterval(nextSlide, INTERVAL_MS);
+        }
+
+        function stopTimer() {
+          if (timerId !== null) {
+            clearInterval(timerId);
+            timerId = null;
+          }
+        }
+
+        function resetTimer() {
+          startTimer();
+        }
+
+        if (slider) {
+          slider.style.cursor = "pointer";
+          slider.addEventListener("click", () => {
+            nextSlide();
+            resetTimer();
+          });
+        }
+
+        showSlide(index);
+        startTimer();
+      });
+    </script>
+
+    <!-- ===== BACK TO TOP ARROW ===== -->
+    <a href="#wrapper" class="back-to-top" title="Back to top">
+      <i class="icon solid fa-arrow-up"></i>
+    </a>
+    <script>
+      document.addEventListener("scroll", () => {
+        const btn = document.querySelector(".back-to-top");
+        if (window.scrollY > 400) {
+          btn.classList.add("visible");
+        } else {
+          btn.classList.remove("visible");
+        }
+      });
+    </script>
+
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      // Ocultamos los elementos antes de que se rendericen
+      const animatedEls = document.querySelectorAll(
+        ".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer"
+      );
+      animatedEls.forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(25px)";
+      });
+    });
+
+    window.addEventListener("load", () => {
+      const animatedEls = document.querySelectorAll(
+        ".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer"
+      );
+
+      animatedEls.forEach((el, i) => {
+        el.style.transition = "opacity 1.1s ease, transform 1.1s ease";
+        setTimeout(() => {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }, 250 + i * 150);
+      });
+    });
+    </script>
+
+
+    
+  </body>
+</html>

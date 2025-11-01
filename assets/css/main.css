@@ -3423,6 +3423,33 @@ input, select, textarea {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
+/* ================= VIDEO CONTAINER 3 – CROPPED HERO VIDEO ================= */
+.video-container-3 {
+  position: relative;
+  width: 100%;
+  max-width: 960px;          /* tamaño ideal para 1080p */
+  margin: 3em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;          /* oculta lo que se sale tras el zoom */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #000;
+}
+
+.video-container-3 video {
+  width: 100%;               /* zoom in */
+  height: 100%;
+  object-fit: cover;          /* rellena el contenedor */
+  object-position: center;    /* centra el recorte */
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+
+
+
 
 /* -------------------------
    Transición de imagen → GIF
@@ -4382,7 +4409,6 @@ body {
   transition: all 0.25s ease;
 }
 
-/* === FIX: Keep consistent colour on hover === */
 /* === FIXED HOVER: smooth lift without border glitch === */
 .gameplay-btn {
   position: relative;
@@ -4595,7 +4621,40 @@ body {
   animation: fadeSlideUp 0.8s ease forwards 0.3s;
 }
 
+/* ===== BACK TO TOP ARROW (CENTERED VERSION) ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 182, 193, 0.85);
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
 
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: #ffb6c1;
+  transform: translateX(-50%) translateY(-4px);
+
+  
+}
 
 
 
