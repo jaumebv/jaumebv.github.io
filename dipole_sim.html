@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Dipole Particle Simulation — GPU System (CUDA & OpenCL)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/mordibonx.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <style>
+      #lightbox-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      #lightbox-overlay.visible { display: flex; }
+      #lightbox-img, #lightbox-video {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+        background: #000;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+
+      <!-- ================= HEADER ================= -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo" style="text-decoration:none;">
+            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
+            <span class="title">Back to Portfolio</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- ================= HERO ================= -->
+      <section class="hero-2003">
+        <div class="inner">
+          <h1>Dipole Particle Simulation</h1>
+          <p class="subtitle">GPU System · CUDA & OpenCL · Raylib · 2023/24</p>
+
+          <div class="video-container-3">
+            <video autoplay loop muted playsinline preload="none" loading="lazy" poster="images/Particles/thumb_color.webp">
+              <source src="images/Particles/color_particles.webm" type="video/webm">
+              <source src="images/Particles/color_particles.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= OVERVIEW ================= -->
+      <section id="overview" class="overview-section">
+        <div class="inner">
+          <h2>Overview</h2>
+          <p>
+            <strong>Dipole Particle Simulation</strong> is a GPU-accelerated <strong>3D particle system</strong> written in <strong>C++</strong>,
+            implementing two different multi-core APIs: <strong>CUDA</strong> and <strong>OpenCL</strong>.  
+            It simulates charged particles interacting within an electric field, optimising performance
+            through parallel computation while comparing both APIs in terms of efficiency and scalability.
+          </p>
+          <p>
+            The project uses <a href="https://www.raylib.com/" target="_blank"><strong>Raylib</strong></a> for window and camera management and <strong>OpenGL</strong>
+            for rendering the 3D environment, leveraging CUDA–OpenGL interoperability for direct GPU-side rendering.  
+            Each implementation computes electric field forces and particle motion entirely on the GPU,
+            achieving real-time framerates even with thousands of active particles.
+          </p>
+          <ul class="game-info">
+            <li><strong>Language:</strong> C++</li>
+            <li><strong>APIs:</strong> CUDA & OpenCL</li>
+            <li><strong>Renderer:</strong> Raylib + OpenGL</li>
+            <li><strong>Performance:</strong> 1M particles and 5K particles configurations tested on high-end PCs</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= IMPLEMENTATION ================= -->
+      <section id="details" class="details-section">
+        <div class="inner">
+          <h2>Implementation</h2>
+
+          <!-- CUDA IMPLEMENTATION -->
+          <div class="detail-block">
+            <div class="text">
+              <h3>CUDA Implementation</h3>
+              <p>
+                The <strong>CUDA</strong> version uses <em>Raylib</em> for windowing and camera control,
+                <em>OpenGL</em> for particle rendering, and <em>CUDA–OpenGL interoperability</em> for direct GPU data sharing.  
+                Each particle is processed on the GPU through a kernel that computes electric field forces and updates
+                positions efficiently across thousands of threads.
+              </p>
+              <p>
+                Custom pseudo-random generation based on thread indices replaces <em>CURAND</em>,
+                resulting in a substantial improvement in performance and frame stability.
+                The simulation runs smoothly with up to one million particles, maintaining excellent responsiveness even with lighter 5,000-particle configurations.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;" poster="images/Particles/thumb_1M.webp">
+                <source src="images/Particles/1MParticles.webm" type="video/webm">
+                <source src="images/Particles/1MParticles.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <!-- OPENCL IMPLEMENTATION -->
+          <div class="detail-block reverse">
+            <div class="text">
+              <h3>OpenCL Implementation</h3>
+              <p>
+                The <strong>OpenCL</strong> implementation closely follows the CUDA design, adapting syntax and
+                resource handling for the OpenCL runtime.  
+                It establishes <em>OpenGL–OpenCL interoperability</em> via shared buffer objects,
+                allowing the GPU to render directly without CPU memory transfers.
+              </p>
+              <p>
+                Although setup and error handling in OpenCL are more complex, runtime performance remains close to CUDA,
+                maintaining stable behaviour and efficient memory usage across both small (5,000) and large (1,000,000) particle simulations.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;" poster="images/Particles/thumb_5k.webp">
+                <source src="images/Particles/5kParticles.webm" type="video/webm">
+                <source src="images/Particles/5kParticles.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= COMPARISON ================= -->
+      <section id="comparison" class="overview-section">
+        <div class="inner">
+          <h2>CUDA vs OpenCL Comparison</h2>
+          <p>
+            Both APIs achieved nearly identical results when scaled to one million particles,
+            maintaining stable performance and memory usage.  
+            <strong>CUDA</strong> proved slightly faster and more efficient in resource utilisation,
+            thanks to its optimised compiler and integrated developer tools.
+          </p>
+          <p>
+            <strong>OpenCL</strong>, however, offers the advantage of cross-platform support and compatibility
+            with non-NVIDIA hardware, making it ideal for broader applications.  
+            Overall, CUDA provided higher performance-to-development efficiency, while OpenCL demonstrated greater flexibility.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= FOOTER ================= -->
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <h2>Contact</h2>
+            <ul class="contact-list">
+              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
+              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
+              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
+              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
+            </ul>
+          </section>
+          <ul class="copyright">
+            <li>&copy; 2025 Jaume Berbel</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- BASE SCRIPTS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- FADE-IN -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer");
+        els.forEach(el => { el.style.opacity = "0"; el.style.transform = "translateY(25px)"; });
+      });
+      window.addEventListener("load", () => {
+        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer");
+        els.forEach((el, i) => {
+          el.style.transition = "opacity 1.1s ease, transform 1.1s ease";
+          setTimeout(() => {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, 250 + i * 150);
+        });
+      });
+    </script>
+
+    <!-- LAZY VIDEO PLAYBACK -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const videos = document.querySelectorAll("video[autoplay]");
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const v = entry.target;
+            if (entry.isIntersecting) v.play().catch(()=>{});
+            else v.pause();
+          });
+        }, { threshold: 0.25 });
+        videos.forEach(v => {
+          v.preload = "none";
+          v.muted = true;
+          v.volume = 0;
+          observer.observe(v);
+        });
+      });
+    </script>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox-overlay">
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" muted playsinline></video>
+      </div>
+    </div>
+
+    <script>
+      requestIdleCallback(() => {
+        const overlay = document.getElementById("lightbox-overlay");
+        const imgEl = document.getElementById("lightbox-img");
+        const videoEl = document.getElementById("lightbox-video");
+
+        function openLightboxVideo(fromEl){
+          videoEl.pause();
+          videoEl.innerHTML = "";
+          fromEl.querySelectorAll("source").forEach(s=>{
+            const clone=document.createElement("source");
+            clone.src=s.src; clone.type=s.type;
+            videoEl.appendChild(clone);
+          });
+          imgEl.style.display="none";
+          videoEl.style.display="block";
+          overlay.classList.add("visible");
+          document.body.style.overflow="hidden";
+          videoEl.muted=true;
+          videoEl.volume=0;
+          videoEl.removeAttribute("controls");
+          videoEl.load();
+          videoEl.play().catch(()=>{});
+        }
+
+        function closeLightbox(){
+          overlay.classList.remove("visible");
+          document.body.style.overflow="";
+          videoEl.pause();
+          videoEl.innerHTML="";
+        }
+
+        document.querySelectorAll(".detail-block video, .video-container-3 video").forEach(el=>{
+          el.addEventListener("click",()=>openLightboxVideo(el));
+          el.style.cursor="zoom-in";
+          el.muted=true;
+          el.volume=0;
+        });
+
+        videoEl.addEventListener("volumechange",()=>{ videoEl.muted=true; videoEl.volume=0; });
+        overlay.addEventListener("click",e=>{ if(e.target===overlay) closeLightbox(); });
+        document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeLightbox(); });
+      });
+    </script>
+
+        <!-- ===== BACK TO TOP ARROW ===== -->
+    <a href="#wrapper" class="back-to-top" title="Back to top">
+      <i class="icon solid fa-arrow-up"></i>
+    </a>
+
+    <script>
+    document.addEventListener("scroll", () => {
+      const btn = document.querySelector(".back-to-top");
+      if (window.scrollY > 400) {
+        btn.classList.add("visible");
+      } else {
+        btn.classList.remove("visible");
+      }
+    });
+    </script>
+    
+  </body>
+</html>

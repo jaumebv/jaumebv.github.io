@@ -6,14 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <style>
+      /* Lightbox */
+      #lightbox-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      #lightbox-overlay.visible { display: flex; }
+      #lightbox-img, #lightbox-video {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        display: none;
+        background: #000;
+      }
+    </style>
   </head>
 
   <body class="is-preload">
-    <!-- Wrapper -->
     <div id="wrapper">
 
-
-      <!-- ================= HEADER ================= -->
+      <!-- HEADER -->
       <header id="header">
         <div class="inner">
           <a href="index.html" class="logo" style="text-decoration:none;">
@@ -22,25 +42,23 @@
           </a>
         </div>
       </header>
-      <!-- ================= END HEADER ================= -->
 
-      <!-- ================= HERO ================= -->
+      <!-- HERO -->
       <section class="hero-2003">
         <div class="inner">
           <h1>Katto: Rising Tides</h1>
           <p class="subtitle">Steam Release & GDWC Finalist</p>
 
           <div class="video-container-2">
-            <video autoplay loop muted playsinline>
+            <video autoplay loop muted playsinline preload="none" loading="lazy" poster="images/Katto/thumb_katto_trailer.webp">
+              <source src="images/Katto/katto_trailer.webm" type="video/webm">
               <source src="images/Katto/katto_trailer.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </section>
-      <!-- ================= END HERO ================= -->
 
-
-      <!-- ================= OVERVIEW ================= -->
+      <!-- OVERVIEW -->
       <section id="overview" class="overview-section">
         <div class="inner">
           <h2>Overview</h2>
@@ -48,8 +66,7 @@
             <strong>Katto: Rising Tides</strong> is a fun and dynamic 3D platformer developed in <strong>Unreal Engine 5</strong> 
             as part of a collaborative project by <strong>Arcadia Games</strong>. 
             The game features smooth platforming mechanics, fluid controls, stylised visuals and a lively atmosphere, 
-            all designed to create a cohesive and enjoyable experience.  
-            
+            all designed to create a cohesive and enjoyable experience.
           </p>
           <br>
           <ul class="game-info">
@@ -61,15 +78,12 @@
           </ul>
         </div>
       </section>
-      <!-- ================= END OVERVIEW ================= -->
 
-
-      <!-- ================= MY WORK ================= -->
+      <!-- MY WORK -->
       <section id="details" class="details-section">
         <div class="inner">
           <h2>My Work</h2>
 
-          <!-- 1. Team collaboration -->
           <div class="detail-block">
             <div class="text">
               <h3>Collaboration & Responsibilities</h3>
@@ -80,13 +94,13 @@
               </p>
             </div>
             <div class="video">
-              <video autoplay loop muted playsinline style="max-width: 90%;">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/Katto/thumb_making_of.webp">
+                <source src="images/Katto/making_of_katto.webm" type="video/webm">
                 <source src="images/Katto/making_of_katto.mp4" type="video/mp4">
               </video>
             </div>
           </div>
 
-          <!-- 2. Level Streaming -->
           <div class="detail-block reverse">
             <div class="text">
               <h3>Custom Level Streaming</h3>
@@ -97,13 +111,13 @@
               </p>
             </div>
             <div class="video">
-              <video autoplay loop muted playsinline style="max-width: 90%;">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/Katto/thumb_streaming.webp">
+                <source src="images/Katto/proyectos1.webm" type="video/webm">
                 <source src="images/Katto/proyectos1.mp4" type="video/mp4">
               </video>
             </div>
           </div>
 
-          <!-- 3. Enemy AI -->
           <div class="detail-block">
             <div class="text">
               <h3>Enemy Logic & AI</h3>
@@ -115,66 +129,52 @@
               </p>
             </div>
             <div class="video">
-              <video autoplay loop muted playsinline style="max-width: 90%;">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/Katto/thumb_enemies.webp">
+                <source src="images/Katto/enemies.webm" type="video/webm">
                 <source src="images/Katto/enemies.mp4" type="video/mp4">
               </video>
             </div>
           </div>
         </div>
       </section>
-      <!-- ================= END MY WORK ================= -->
 
-
-      <!-- ================= GALLERY ================= -->
-       <section id="gallery" class="gallery-section">
+      <!-- GALLERY -->
+      <section id="gallery" class="gallery-section">
         <div class="inner">
           <h2>Gallery</h2>
-      <div class="gallery-slider">
-      <div class="slide active"><img src="images/Katto/im_MainMenu-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/screenshot_0-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/screenshot_1-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/screenshot_3-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/screenshot_4-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/Enviro_Agora2-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/Enviro_Garden2-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/Enviro_Temple1-DMann.webp" alt=""></div>
-      <div class="slide"><img src="images/Katto/Enviro_Boss1-DMann.webp" alt=""></div>
+          <div class="gallery-slider">
+            <div class="slide active"><img src="images/Katto/im_MainMenu-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/screenshot_0-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/screenshot_1-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/screenshot_3-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/screenshot_4-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/Enviro_Agora2-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/Enviro_Garden2-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/Enviro_Temple1-DMann.webp" alt=""></div>
+            <div class="slide"><img src="images/Katto/Enviro_Boss1-DMann.webp" alt=""></div>
+          </div>
+          <div class="gallery-dots"></div>
+        </div>
+      </section>
 
-      </div>
-
-      <div class="gallery-dots"></div>
-
-</section>
-
-      <!-- ================= END GALLERY ================= -->
-
-
-
-      <!-- ================= LINKS / WATCH & PLAY ================= -->
+      <!-- LINKS -->
       <section class="full-gameplay">
         <div class="inner">
           <h2>Links</h2>
           <a href="https://youtu.be/V4q9WDnBvYk?si=FwoCqC4yoZbZLVp_" target="_blank" class="gameplay-btn">
             <i class="icon solid fa-play"></i> Watch Trailer
           </a>
-          <a href="https://store.steampowered.com/app/2999250/Katto_Rising_Tides/" target="_blank" class="gameplay-btn" style="margin-left: 1em;">
+          <a href="https://store.steampowered.com/app/2999250/Katto_Rising_Tides/" target="_blank" class="gameplay-btn" style="margin-left:1em;">
             <i class="icon brands fa-steam"></i> View on Steam
           </a>
-<br><br>
+          <br><br>
           <div class="featured-on">
-            Also featured on 
-            <a href="https://www.therookies.co/entries/39087" target="_blank" rel="noopener">
-              The Rookies
-            </a>.
+            Also featured on <a href="https://www.therookies.co/entries/39087" target="_blank" rel="noopener">The Rookies</a>.
           </div>
         </div>
       </section>
-<!-- ================= END LINKS / WATCH & PLAY ================= -->
 
-
-
-
-      <!-- ================= FOOTER ================= -->
+      <!-- FOOTER -->
       <footer id="footer">
         <div class="inner">
           <section>
@@ -191,33 +191,105 @@
           </ul>
         </div>
       </footer>
-      <!-- ================= END FOOTER ================= -->
-
     </div>
 
-    <!-- Scripts -->
+    <!-- SCRIPTS -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-<script>
+    <!-- BACK TO TOP -->
+    <a href="#wrapper" class="back-to-top" title="Back to top">
+      <i class="icon solid fa-arrow-up"></i>
+    </a>
+    <script>
+      document.addEventListener("scroll",()=>{
+        const btn=document.querySelector(".back-to-top");
+        btn.classList.toggle("visible",window.scrollY>400);
+      });
+    </script>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox-overlay">
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" muted playsinline></video>
+      </div>
+    </div>
+
+    <script>
+      requestIdleCallback(()=>{
+        const overlay=document.getElementById("lightbox-overlay");
+        const imgEl=document.getElementById("lightbox-img");
+        const videoEl=document.getElementById("lightbox-video");
+
+        function openVideo(from){
+          videoEl.pause();videoEl.innerHTML="";
+          from.querySelectorAll("source").forEach(s=>{
+            const c=document.createElement("source");
+            c.src=s.src;c.type=s.type;videoEl.appendChild(c);
+          });
+          imgEl.style.display="none";videoEl.style.display="block";
+          overlay.classList.add("visible");
+          document.body.style.overflow="hidden";
+          videoEl.muted=true;videoEl.volume=0;videoEl.removeAttribute("controls");
+          videoEl.load();videoEl.play().catch(()=>{});
+        }
+        function closeVideo(){
+          overlay.classList.remove("visible");
+          document.body.style.overflow="";
+          videoEl.pause();videoEl.innerHTML="";
+        }
+
+        document.querySelectorAll(".detail-block video, .video-container-2 video").forEach(el=>{
+          el.addEventListener("click",()=>openVideo(el));
+          el.style.cursor="zoom-in";
+        });
+
+        videoEl.addEventListener("volumechange",()=>{videoEl.muted=true;videoEl.volume=0;});
+        overlay.addEventListener("click",e=>{if(e.target===overlay)closeVideo();});
+        document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVideo();});
+      });
+    </script>
+
+    <!-- LAZY VIDEO CONTROL -->
+    <script>
+      document.addEventListener("DOMContentLoaded",()=>{
+        const vids=document.querySelectorAll("video[autoplay]");
+        const observer=new IntersectionObserver(entries=>{
+          entries.forEach(e=>{
+            const v=e.target;
+            if(e.isIntersecting)v.play().catch(()=>{});
+            else v.pause();
+          });
+        },{threshold:0.25});
+        vids.forEach(v=>{
+          v.preload="none";v.muted=true;v.volume=0;
+          observer.observe(v);
+        });
+      });
+    </script>
+
+    <script>
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".gallery-slider");
   const slides = document.querySelectorAll(".gallery-slider .slide");
   const dotsContainer = document.querySelector(".gallery-dots");
 
+  if (!slider || slides.length === 0) return;
+
   let index = 0;
   const INTERVAL_MS = 5000;
   let timerId = null;
 
-  // Crear dots
+  // Create dots
   slides.forEach((_, i) => {
     const dot = document.createElement("span");
     dot.addEventListener("click", () => {
       showSlide(i);
-      resetTimer(); // Al clicar un dot, reinicia el tiempo
+      resetTimer();
     });
     dotsContainer.appendChild(dot);
   });
@@ -243,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function stopTimer() {
-    if (timerId !== null) {
+    if (timerId) {
       clearInterval(timerId);
       timerId = null;
     }
@@ -253,104 +325,31 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer();
   }
 
-  // Al hacer click en cualquier parte de la galería: pasa a la siguiente y reinicia tiempo
-  if (slider) {
-    slider.style.cursor = "pointer"; // opcional, feedback visual
-    slider.addEventListener("click", () => {
+  // Clicking anywhere on the gallery moves to next slide
+  slider.style.cursor = "pointer";
+  slider.addEventListener("click", () => {
+    nextSlide();
+    resetTimer();
+  });
+
+  // Swipe/tap gesture for mobile
+  let touchStartX = 0;
+  slider.addEventListener("touchstart", e => { 
+    touchStartX = e.changedTouches[0].clientX; 
+  }, { passive: true });
+  slider.addEventListener("touchend", e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) < 10 || dx < 0) {
       nextSlide();
       resetTimer();
-    });
-    // (Opcional) soporte táctil: tap también avanza y reinicia
-    let touchStartX = 0;
-    slider.addEventListener("touchstart", (e) => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
-    slider.addEventListener("touchend", (e) => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      // Si el gesto es corto (tap) o un swipe a la izquierda, avanza
-      if (Math.abs(dx) < 10 || dx < 0) {
-        nextSlide();
-        resetTimer();
-      }
-    }, {passive:true});
-  }
+    }
+  }, { passive: true });
 
-  // Inicialización
+  // Initialise
   showSlide(index);
   startTimer();
 });
 </script>
 
-
-<!-- ===== BACK TO TOP ARROW ===== -->
-<a href="#wrapper" class="back-to-top" title="Back to top">
-  <i class="icon solid fa-arrow-up"></i>
-</a>
-
-<script>
-document.addEventListener("scroll", () => {
-  const btn = document.querySelector(".back-to-top");
-  if (window.scrollY > 400) {
-    btn.classList.add("visible");
-  } else {
-    btn.classList.remove("visible");
-  }
-});
-</script>
-
   </body>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox-overlay">
-    <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="">
-      <video id="lightbox-video" controls></video>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const overlay = document.getElementById("lightbox-overlay");
-      const imgEl = document.getElementById("lightbox-img");
-      const videoEl = document.getElementById("lightbox-video");
-
-      function openLightbox(src, type) {
-        overlay.style.display = "flex";
-        document.body.style.overflow = "hidden";
-
-        if (type === "video") {
-          imgEl.style.display = "none";
-          videoEl.style.display = "block";
-          videoEl.src = src;
-          videoEl.play();
-        } else {
-          videoEl.style.display = "none";
-          imgEl.style.display = "block";
-          imgEl.src = src;
-        }
-
-        setTimeout(() => overlay.classList.add("visible"), 10);
-      }
-
-      function closeLightbox() {
-        overlay.classList.remove("visible");
-        document.body.style.overflow = "";
-        setTimeout(() => {
-          overlay.style.display = "none";
-          videoEl.pause();
-          videoEl.src = "";
-        }, 250);
-      }
-
-      document.querySelectorAll(".gallery-item img, .gallery-item video, .detail-block video").forEach(el => {
-        el.addEventListener("click", () => {
-          const src = el.src || el.querySelector("source")?.src;
-          const type = el.tagName.toLowerCase();
-          openLightbox(src, type);
-        });
-      });
-
-      overlay.addEventListener("click", e => { if (e.target === overlay) closeLightbox(); });
-      document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
-    });
-  </script>
-
 </html>

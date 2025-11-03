@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>MORDIBONX — Custom C++ Rendering Engine</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/mordibonx.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <style>
+      #lightbox-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      #lightbox-overlay.visible { display: flex; }
+      #lightbox-img, #lightbox-video {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+        background: #000;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+
+      <!-- ================= HEADER ================= -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo" style="text-decoration:none;">
+            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
+            <span class="title">Back to Portfolio</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- ================= HERO ================= -->
+      <section class="hero-2003">
+        <div class="inner">
+          <h1>MORDIBONX</h1>
+          <p class="subtitle">Custom C++ Rendering Engine · OpenGL · 2023/24</p>
+
+          <div class="video-container-3">
+            <video autoplay loop muted playsinline preload="none" loading="lazy" poster="images/ESAT-graphics_engine/thumb_lights_demo.webp">
+              <source src="images/ESAT-graphics_engine/lights_demo.webm" type="video/webm">
+              <source src="images/ESAT-graphics_engine/lights_demo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= OVERVIEW ================= -->
+      <section id="overview" class="overview-section">
+        <div class="inner">
+          <h2>Overview</h2>
+          <p>
+            <strong>MORDIBONX</strong> is a fully custom C++ rendering engine developed using <strong>OpenGL</strong>, 
+            built to implement modern real-time rendering techniques such as <strong>deferred rendering</strong>, 
+            <strong>post-processing effects</strong>, and a <strong>multi-threaded architecture</strong> with an in-house <em>multithreaded job system</em>.  
+            It was designed to serve as a learning platform for low-level engine design, 
+            combining rendering theory, ECS architecture, and real-time graphics programming.
+          </p>
+          <br>
+          <ul class="game-info">
+            <li><strong>Language:</strong> C++</li>
+            <li><strong>Graphics API:</strong> OpenGL</li>
+            <li><strong>Development time:</strong> 7+ months</li>
+            <li><strong>Team:</strong> Jaume Berbel & <a href="https://cervath.github.io/" target="_blank">Guillem Llorach</a></li>
+            <li><strong>Year:</strong> 2023/24</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= CORE SYSTEMS ================= -->
+      <section id="details" class="details-section">
+        <div class="inner">
+          <h2>Core Systems</h2>
+
+          <div class="detail-block">
+            <div class="text">
+              <h3>Engine Architecture & ECS</h3>
+              <p>
+                The engine is structured around an <strong>Entity-Component-System (ECS)</strong> architecture, enabling 
+                efficient data management and modular entity behaviour. It includes a <strong>Resource Manager</strong> 
+                for dynamic model loading, a <strong>Job System</strong> for multi-threaded task execution, and a 
+                <strong>CameraPhoto</strong> utility that captures real-time scene snapshots asynchronously.
+              </p>
+              <p>
+                The <em>Engine</em> class orchestrates all core systems, coordinating rendering modes (forward and deferred), 
+                resource initialisation, and shader management. The <em>Window</em> system integrates <strong>ImGui</strong> 
+                for in-engine editing and live debugging.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/ESAT-graphics_engine/thumb_lights_on.webp">
+                <source src="images/ESAT-graphics_engine/lights_on.webm" type="video/webm">
+                <source src="images/ESAT-graphics_engine/lights_on.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="detail-block reverse">
+            <div class="text">
+              <h3>Rendering Pipeline</h3>
+              <p>
+                MORDIBONX supports both <strong>forward</strong> and <strong>deferred rendering</strong> pipelines.  
+                The forward pass computes lighting directly per object, ideal for simple scenes, while the deferred 
+                approach separates geometry and lighting, efficiently handling multiple dynamic light sources.  
+              </p>
+              <p>
+                The engine includes <strong>shadow mapping</strong> for directional, point, and spot lights using depth 
+                buffers and cubemap techniques. Each light contributes to a multi-pass lighting stage, accumulating 
+                the final image through additive blending.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/ESAT-graphics_engine/thumb_spotlight.webp">
+                <source src="images/ESAT-graphics_engine/spolight.webm" type="video/webm">
+                <source src="images/ESAT-graphics_engine/spolight.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="text">
+              <h3>Post-Processing & Photo Mode</h3>
+              <p>
+                Using framebuffer rendering, MORDIBONX applies multiple <strong>post-processing effects</strong> such as 
+                <em>blur, pixelation, contrast adjustment, grayscale, negative,</em> and <em>cartoon shading</em>.  
+                These are implemented via dedicated GLSL fragment shaders, applied over a full-screen quad.
+              </p>
+              <p>
+                Additionally, the <strong>Photo Mode</strong> integrates with the <em>Job System</em>, enabling 
+                real-time screenshot capture without interrupting the render loop — offloading image saving to 
+                background threads for optimal performance.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/ESAT-graphics_engine/thumb_postprocess.webp">
+                <source src="images/ESAT-graphics_engine/postprocess.webm" type="video/webm">
+                <source src="images/ESAT-graphics_engine/postprocess.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= CHALLENGES ================= -->
+      <section id="challenges" class="overview-section">
+        <div class="inner">
+          <h2>Challenges & Takeaways</h2>
+          <p>
+            Developing MORDIBONX was an exercise in both <strong>technical depth</strong> and <strong>problem-solving</strong>.  
+            Implementing ECS, multi-threading, and deferred rendering demanded solid understanding of modern C++ and 
+            graphics APIs. Shadows and GBuffer management proved particularly challenging but essential to the final result.
+          </p>
+          <p>
+            Through trial, debugging, and team collaboration, the engine evolved into a modular, extensible base for 
+            real-time rendering projects. This project deepened our understanding of how professional engines manage 
+            rendering pipelines, parallelism, and performance.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= DEMO (YOUTUBE) ================= -->
+      <section id="project-demo" class="full-gameplay">
+        <div class="inner">
+          <h2>Project Demo</h2>
+          <div class="video-container-3" style="
+            position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+            border-radius:14px;box-shadow:0 8px 25px rgba(0,0,0,0.15);
+            max-width:900px;margin:0 auto;">
+            <iframe 
+              src="https://www.youtube.com/embed/-JtCQw8o8cw?si=ga9ZGY6Hhiur4eRu"
+              title="MORDIBONX Engine – Demo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:14px;">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FOOTER ================= -->
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <h2>Contact</h2>
+            <ul class="contact-list">
+              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
+              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
+              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
+              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
+            </ul>
+          </section>
+          <ul class="copyright">
+            <li>&copy; 2025 Jaume Berbel</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- BASE SCRIPTS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- ANIMATIONS -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer");
+        els.forEach(el => { el.style.opacity="0"; el.style.transform="translateY(25px)"; });
+      });
+      window.addEventListener("load", () => {
+        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer");
+        els.forEach((el,i)=>{
+          el.style.transition="opacity 1.1s ease, transform 1.1s ease";
+          setTimeout(()=>{el.style.opacity="1";el.style.transform="translateY(0)";},250+i*150);
+        });
+      });
+    </script>
+
+    <!-- LAZY VIDEO PLAYBACK -->
+    <script>
+      document.addEventListener("DOMContentLoaded",()=>{
+        const vids=document.querySelectorAll("video[autoplay]");
+        const observer=new IntersectionObserver(entries=>{
+          entries.forEach(e=>{
+            const v=e.target;
+            if(e.isIntersecting)v.play().catch(()=>{});
+            else v.pause();
+          });
+        },{threshold:0.25});
+        vids.forEach(v=>{
+          v.preload="none";v.muted=true;v.volume=0;
+          observer.observe(v);
+        });
+      });
+    </script>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox-overlay">
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" muted playsinline></video>
+      </div>
+    </div>
+
+    <script>
+      requestIdleCallback(()=>{
+        const overlay=document.getElementById("lightbox-overlay");
+        const imgEl=document.getElementById("lightbox-img");
+        const videoEl=document.getElementById("lightbox-video");
+
+        function openVideo(from){
+          videoEl.pause();videoEl.innerHTML="";
+          from.querySelectorAll("source").forEach(s=>{
+            const c=document.createElement("source");
+            c.src=s.src;c.type=s.type;videoEl.appendChild(c);
+          });
+          imgEl.style.display="none";videoEl.style.display="block";
+          overlay.classList.add("visible");
+          document.body.style.overflow="hidden";
+          videoEl.muted=true;videoEl.volume=0;videoEl.removeAttribute("controls");
+          videoEl.load();videoEl.play().catch(()=>{});
+        }
+
+        function closeVideo(){
+          overlay.classList.remove("visible");
+          document.body.style.overflow="";
+          videoEl.pause();videoEl.innerHTML="";
+        }
+
+        document.querySelectorAll(".detail-block video, .video-container-3 video").forEach(el=>{
+          el.addEventListener("click",()=>openVideo(el));
+          el.style.cursor="zoom-in";
+          el.muted=true;el.volume=0;
+        });
+
+        videoEl.addEventListener("volumechange",()=>{videoEl.muted=true;videoEl.volume=0;});
+        overlay.addEventListener("click",e=>{if(e.target===overlay)closeVideo();});
+        document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVideo();});
+      });
+    </script>
+
+        <!-- ===== BACK TO TOP ARROW ===== -->
+    <a href="#wrapper" class="back-to-top" title="Back to top">
+      <i class="icon solid fa-arrow-up"></i>
+    </a>
+
+    <script>
+    document.addEventListener("scroll", () => {
+      const btn = document.querySelector(".back-to-top");
+      if (window.scrollY > 400) {
+        btn.classList.add("visible");
+      } else {
+        btn.classList.remove("visible");
+      }
+    });
+    </script>
+    
+  </body>
+</html>

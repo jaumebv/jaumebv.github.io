@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Multiplayer Shooter — Cross-Engine UDP Networking</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <!-- Lightbox mínimo (solo para el overlay y tamaño) -->
+    <style>
+      #lightbox-overlay{
+        position:fixed; inset:0; display:none;
+        align-items:center; justify-content:center;
+        background:rgba(0,0,0,.9); z-index:9999;
+      }
+      #lightbox-overlay.visible{ display:flex; }
+      #lightbox-img, #lightbox-video{
+        max-width:90vw; max-height:90vh;
+        border-radius:12px; background:#000;
+        box-shadow:0 8px 25px rgba(0,0,0,.35);
+      }
+      #lightbox-img{ display:none; }
+      #lightbox-video{ display:none; }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+
+      <!-- ================= HEADER ================= -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo" style="text-decoration:none;">
+            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
+            <span class="title">Back to Portfolio</span>
+          </a>
+        </div>
+      </header>
+      <!-- ================= END HEADER ================= -->
+
+      <!-- ================= HERO ================= -->
+      <section class="hero-2003">
+        <div class="inner">
+          <h1>Multiplayer Shooter — Cross-Engine UDP Networking</h1>
+          <p class="subtitle">C# · C++ · Unity · Unreal Engine · Custom UDP Server · 2024/25</p>
+
+          <div class="video-container-3">
+            <video autoplay loop muted playsinline preload="none" loading="lazy">
+              <source src="images/MultiplayerGame/shooting.webm" type="video/webm">
+              <source src="images/MultiplayerGame/shooting.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+      <!-- ================= END HERO ================= -->
+
+      <!-- ================= OVERVIEW ================= -->
+      <section id="overview" class="overview-section">
+        <div class="inner">
+          <h2>Overview</h2>
+          <p>
+            <strong>Multiplayer Shooter</strong> is a cross-engine networking project featuring a custom <strong>UDP server</strong> (C#) and two interchangeable clients built in <strong>Unity</strong> (C#) and <strong>Unreal Engine</strong> (C++). 
+            Both clients share the same lightweight protocol to synchronise <em>movement, shooting, flags, pickups, scoring</em> and match state in real time.
+          </p>
+          <ul class="game-info">
+            <li><strong>Server:</strong> Standalone C# (UDP sockets)</li>
+            <li><strong>Clients:</strong> Unity (C#) &amp; Unreal (C++)</li>
+            <li><strong>Networking:</strong> Custom text-based packets over UDP</li>
+            <li><strong>Core systems:</strong> Team assignment · Flag capture · Pickups · Respawn · Scoreboard</li>
+            <li><strong>Year:</strong> 2024/25</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= SERVER ================= -->
+      <section id="server" class="details-section">
+        <div class="inner">
+          <h2>Networking System (Server)</h2>
+          <div class="detail-block">
+            <div class="text">
+              <h3>Authoritative UDP Server</h3>
+              <p>
+                The server manages <strong>connections, UIDs, team balancing, scores</strong> and game-wide broadcasts. 
+                On connect, the client receives a unique <em>UID</em>, team assignment and the current scoreboard. 
+                Disconnections are handled gracefully, removing transforms and team membership and notifying all clients.
+              </p>
+              <ul>
+                <li>Team and UID registries for fast look-ups and clean teardown.</li>
+                <li>Broadcast tick for transforms, scores and match events.</li>
+                <li>Packet router with dedicated handlers (shots, flags, pickups).</li>
+              </ul>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
+                <source src="images/MultiplayerGame/client_disconnecting.webm" type="video/webm">
+                <source src="images/MultiplayerGame/client_disconnecting.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CLIENTS ================= -->
+      <section id="clients" class="details-section">
+        <div class="inner">
+          <h2>Unity &amp; Unreal Clients</h2>
+
+          <div class="detail-block">
+            <div class="text">
+              <h3>Shared Architecture</h3>
+              <p>
+                Both clients follow the same structure: <strong>NetworkManager</strong> and <strong>GameManager</strong>. 
+                The protocol is engine-agnostic, so features remain identical in Unity and Unreal.
+              </p>
+              <ul>
+                <li>Deterministic packet format and handlers on both engines.</li>
+                <li>Spawn/teardown mirrored across Unity and Unreal.</li>
+                <li>Coroutines/Timers for periodic sync and effects.</li>
+              </ul>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
+                <source src="images/MultiplayerGame/moving.webm" type="video/webm">
+                <source src="images/MultiplayerGame/moving.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="detail-block reverse">
+            <div class="text">
+              <h3>Shooting &amp; Damage</h3>
+              <p>
+                A raycast determines aim direction; physical projectiles are spawned with lifetime control. 
+                On hit, damage is validated locally and relayed to the server. 
+                Friendly fire is disabled; when HP reaches zero, the player drops the flag (if any) and respawns.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
+                <source src="images/MultiplayerGame/flags&shooting.webm" type="video/webm">
+                <source src="images/MultiplayerGame/flags&shooting.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="text">
+              <h3>Flag System</h3>
+              <p>
+                Two flags (one per team) support <em>Picked, Lost, Returned, Captured</em> states. 
+                The flag follows the carrier, returns when dropped, and can only be captured if the home flag is present.
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
+                <source src="images/MultiplayerGame/capturing_flag.webm" type="video/webm">
+                <source src="images/MultiplayerGame/capturing_flag.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="detail-block reverse">
+            <div class="text">
+              <h3>Pickups</h3>
+              <p>
+                <strong>Health</strong> and <strong>Speed</strong> pickups derive from a shared base class. 
+                Only the local owner triggers pickup messages; the object hides and respawns after a delay. 
+              </p>
+            </div>
+            <div class="video">
+              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
+                <source src="images/MultiplayerGame/pickups.webm" type="video/webm">
+                <source src="images/MultiplayerGame/pickups.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECURITY ================= -->
+      <section id="security" class="overview-section">
+        <div class="inner">
+          <h2>Security &amp; Exploit Mitigation</h2>
+          <ul>
+            <li><strong>Position validation:</strong> speed/distance thresholds between frames.</li>
+            <li><strong>UID ownership:</strong> bind UID to sender endpoint, reject mismatches.</li>
+            <li><strong>Action validation:</strong> verify capture/flag preconditions.</li>
+            <li><strong>Rate limiting &amp; bans:</strong> throttle bursts, flag invalid packets.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= FOOTER ================= -->
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <h2>Contact</h2>
+            <ul class="contact-list">
+              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
+              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
+              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
+              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
+            </ul>
+          </section>
+          <ul class="copyright">
+            <li>&copy; 2025 Jaume Berbel</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- BASE SCRIPTS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- FADE-IN ANIMATION -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, footer");
+        els.forEach(el => { el.style.opacity = "0"; el.style.transform = "translateY(25px)"; });
+      });
+      window.addEventListener("load", () => {
+        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, footer");
+        els.forEach((el, i) => {
+          el.style.transition = "opacity 1.1s ease, transform 1.1s ease";
+          setTimeout(() => {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, 250 + i * 150);
+        });
+      });
+    </script>
+
+    <!-- LAZY VIDEO PLAYBACK -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const videos = document.querySelectorAll("video[autoplay]");
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.25 });
+        videos.forEach(v => {
+          v.preload = "none";
+          observer.observe(v);
+        });
+      });
+    </script>
+
+    <!-- LIGHTBOX (solo arreglado el click) -->
+    <div id="lightbox-overlay">
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" muted playsinline controls></video>
+      </div>
+    </div>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("lightbox-overlay");
+      const imgEl = document.getElementById("lightbox-img");
+      const videoEl = document.getElementById("lightbox-video");
+
+      // siempre muteado y sin controles
+      videoEl.controls = false;
+      videoEl.muted = true;
+      videoEl.volume = 0;
+
+      function openLightboxVideo(fromEl) {
+        // limpiar fuentes anteriores
+        videoEl.pause();
+        videoEl.innerHTML = "";
+
+        // clonar todas las <source> del vídeo clicado
+        const sources = fromEl.querySelectorAll("source");
+        if (sources.length) {
+          sources.forEach(s => {
+            const clone = document.createElement("source");
+            clone.src = s.getAttribute("src");
+            const t = s.getAttribute("type");
+            if (t) clone.type = t;
+            videoEl.appendChild(clone);
+          });
+        } else if (fromEl.currentSrc || fromEl.src) {
+          const clone = document.createElement("source");
+          clone.src = fromEl.currentSrc || fromEl.src;
+          videoEl.appendChild(clone);
+        }
+
+        // configuración de seguridad (evita desmutear)
+        videoEl.muted = true;
+        videoEl.volume = 0;
+        videoEl.removeAttribute("controls");
+        videoEl.setAttribute("muted", "");
+
+        // mostrar vídeo
+        imgEl.style.display = "none";
+        videoEl.style.display = "block";
+        overlay.classList.add("visible");
+        document.body.style.overflow = "hidden";
+
+        videoEl.load();
+        videoEl.play().catch(() => {});
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove("visible");
+        document.body.style.overflow = "";
+        videoEl.pause();
+        videoEl.innerHTML = "";
+      }
+
+      // Click en los vídeos embebidos
+      document.querySelectorAll(".detail-block video, .video-container-3 video").forEach(el => {
+        el.addEventListener("click", () => openLightboxVideo(el));
+        el.style.cursor = "zoom-in";
+        el.muted = true;
+        el.volume = 0;
+        el.removeAttribute("controls");
+      });
+
+      // bloquear intento de desmuteo
+      videoEl.addEventListener("volumechange", () => {
+        if (!videoEl.muted || videoEl.volume > 0) {
+          videoEl.muted = true;
+          videoEl.volume = 0;
+        }
+      });
+
+      overlay.addEventListener("click", e => { if (e.target === overlay) closeLightbox(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+    });
+  </script>
+
+    <!-- ===== BACK TO TOP ARROW ===== -->
+    <a href="#wrapper" class="back-to-top" title="Back to top">
+      <i class="icon solid fa-arrow-up"></i>
+    </a>
+
+    <script>
+    document.addEventListener("scroll", () => {
+      const btn = document.querySelector(".back-to-top");
+      if (window.scrollY > 400) {
+        btn.classList.add("visible");
+      } else {
+        btn.classList.remove("visible");
+      }
+    });
+    </script>
+    
+  </body>
+</html>

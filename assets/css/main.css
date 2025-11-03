@@ -3451,6 +3451,9 @@ input, select, textarea {
 
 
 
+
+
+
 /* -------------------------
    Transición de imagen → GIF
    ------------------------- */
@@ -4657,4 +4660,33 @@ body {
 }
 
 
+/* MORDIBONX-specific visual tuning */
+.hero-2003 h1 {
+  font-size: 3.2em;
+  letter-spacing: 1px;
+}
+
+.details-section h2,
+.overview-section h2 {
+  font-weight: 700;
+}
+
+.detail-block .text p {
+  line-height: 1.6;
+}
+
+.video-container-3 video {
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.full-gameplay h2 {
+  margin-bottom: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .detail-block .video video {
+    max-width: 100%;
+  }
+}
 
