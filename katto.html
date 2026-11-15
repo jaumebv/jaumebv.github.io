@@ -1,355 +1,292 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Katto: Rising Tides – Steam Release & GDWC Finalist</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Katto: Rising Tides — Jaume Berbel</title>
+  <meta name="description" content="3D platformer built in Unreal Engine 5 and C++ by a team of 17, released on Steam. Custom level-streaming system and enemy AI &amp; combat by Jaume Berbel." data-i18n-attr="content:meta.desc">
+  <meta name="theme-color" content="#09090b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-    <style>
-      /* Lightbox */
-      #lightbox-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.9);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      }
-      #lightbox-overlay.visible { display: flex; }
-      #lightbox-img, #lightbox-video {
-        max-width: 90vw;
-        max-height: 90vh;
-        border-radius: 12px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-        display: none;
-        background: #000;
-      }
-    </style>
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <body class="is-preload">
-    <div id="wrapper">
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang');if(l==='es'){d.lang='es';d.classList.add('i18n-pending');setTimeout(function(){d.classList.remove('i18n-pending')},1500);}}catch(e){}})();</script>
 
-      <!-- HEADER -->
-      <header id="header">
-        <div class="inner">
-          <a href="index.html" class="logo" style="text-decoration:none;">
-            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
-            <span class="title">Back to Portfolio</span>
-          </a>
+  <script src="assets/i18n/katto.es.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body style="--p-accent: #f4b8d0; --p-glow: rgba(244, 184, 208, 0.12)">
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav is-solid">
+    <div class="container container--wide nav__inner">
+      <a class="brand" href="index.html" aria-label="Jaume Berbel — home">
+        <span class="brand__mark" aria-hidden="true"><span>J</span><span>B</span></span>
+        <span>
+          <span class="brand__name">Jaume Berbel</span>
+          <span class="brand__role" data-i18n="brand.role">Game Programmer &amp; C++</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#work" class="is-active" data-i18n="nav.work">Work</a>
+        <a href="index.html#toolkit" data-i18n="nav.toolkit">Skills</a>
+        <a href="index.html#background" data-i18n="nav.about">About</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+          <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
         </div>
-      </header>
-
-      <!-- HERO -->
-      <section class="hero-2003">
-        <div class="inner">
-          <h1>Katto: Rising Tides</h1>
-          <p class="subtitle">Steam Release & GDWC Finalist</p>
-
-          <div class="video-container-2">
-            <video autoplay loop muted playsinline preload="none" loading="lazy" poster="images/Katto/thumb_katto_trailer.webp">
-              <source src="images/Katto/katto_trailer.webm" type="video/webm">
-              <source src="images/Katto/katto_trailer.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </section>
-
-      <!-- OVERVIEW -->
-      <section id="overview" class="overview-section">
-        <div class="inner">
-          <h2>Overview</h2>
-          <p>
-            <strong>Katto: Rising Tides</strong> is a fun and dynamic 3D platformer developed in <strong>Unreal Engine 5</strong> 
-            as part of a collaborative project by <strong>Arcadia Games</strong>. 
-            The game features smooth platforming mechanics, fluid controls, stylised visuals and a lively atmosphere, 
-            all designed to create a cohesive and enjoyable experience.
-          </p>
-          <br>
-          <ul class="game-info">
-            <li><strong>Platform:</strong> PC (Controller support)</li>
-            <li><strong>Release date:</strong> July 4th, 2024</li>
-            <li><strong>Engine:</strong> Unreal Engine 5</li>
-            <li><strong>Team:</strong> 7 Programmers · 2 Designers · 7 Artists · 5 Musicians</li>
-            <li><strong>Development time:</strong> ~7 months</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- MY WORK -->
-      <section id="details" class="details-section">
-        <div class="inner">
-          <h2>My Work</h2>
-
-          <div class="detail-block">
-            <div class="text">
-              <h3>Collaboration & Responsibilities</h3>
-              <p>
-                Collaborated closely with <strong>7 programmers</strong>, <strong>2 designers</strong>, and <strong>8 artists</strong>, 
-                ensuring smooth communication between all departments to maintain visual and gameplay consistency 
-                throughout the development process.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/Katto/thumb_making_of.webp">
-                <source src="images/Katto/making_of_katto.webm" type="video/webm">
-                <source src="images/Katto/making_of_katto.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <div class="detail-block reverse">
-            <div class="text">
-              <h3>Custom Level Streaming</h3>
-              <p>
-                Designed and implemented a <strong>custom Level Streaming system</strong> in Unreal Engine, 
-                allowing designers to dynamically load and unload game areas in real time.  
-                This improved performance and flexibility during both development and gameplay.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/Katto/thumb_streaming.webp">
-                <source src="images/Katto/proyectos1.webm" type="video/webm">
-                <source src="images/Katto/proyectos1.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="text">
-              <h3>Enemy Logic & AI</h3>
-              <p>
-                Created the <strong>AI and combat behaviour</strong> for two of the main enemies, 
-                integrating animations from the art team and ensuring smooth transitions between idle, attack, 
-                and reaction states.  
-                Focused on responsiveness and animation timing to make combat feel polished and reactive.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width:90%;" poster="images/Katto/thumb_enemies.webp">
-                <source src="images/Katto/enemies.webm" type="video/webm">
-                <source src="images/Katto/enemies.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- GALLERY -->
-      <section id="gallery" class="gallery-section">
-        <div class="inner">
-          <h2>Gallery</h2>
-          <div class="gallery-slider">
-            <div class="slide active"><img src="images/Katto/im_MainMenu-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/screenshot_0-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/screenshot_1-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/screenshot_3-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/screenshot_4-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/Enviro_Agora2-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/Enviro_Garden2-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/Enviro_Temple1-DMann.webp" alt=""></div>
-            <div class="slide"><img src="images/Katto/Enviro_Boss1-DMann.webp" alt=""></div>
-          </div>
-          <div class="gallery-dots"></div>
-        </div>
-      </section>
-
-      <!-- LINKS -->
-      <section class="full-gameplay">
-        <div class="inner">
-          <h2>Links</h2>
-          <a href="https://youtu.be/V4q9WDnBvYk?si=FwoCqC4yoZbZLVp_" target="_blank" class="gameplay-btn">
-            <i class="icon solid fa-play"></i> Watch Trailer
-          </a>
-          <a href="https://store.steampowered.com/app/2999250/Katto_Rising_Tides/" target="_blank" class="gameplay-btn" style="margin-left:1em;">
-            <i class="icon brands fa-steam"></i> View on Steam
-          </a>
-          <br><br>
-          <div class="featured-on">
-            Also featured on <a href="https://www.therookies.co/entries/39087" target="_blank" rel="noopener">The Rookies</a>.
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer id="footer">
-        <div class="inner">
-          <section>
-            <h2>Contact</h2>
-            <ul class="contact-list">
-              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
-              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
-              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
-              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
-            </ul>
-          </section>
-          <ul class="copyright">
-            <li>&copy; 2025 Jaume Berbel</li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
-    <!-- SCRIPTS -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <!-- BACK TO TOP -->
-    <a href="#wrapper" class="back-to-top" title="Back to top">
-      <i class="icon solid fa-arrow-up"></i>
-    </a>
-    <script>
-      document.addEventListener("scroll",()=>{
-        const btn=document.querySelector(".back-to-top");
-        btn.classList.toggle("visible",window.scrollY>400);
-      });
-    </script>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox-overlay">
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="">
-        <video id="lightbox-video" muted playsinline></video>
+        <a class="btn btn--sm" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener">
+          <span data-i18n="nav.resume">Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="arrow-down" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+        </a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu"><span></span><span></span></button>
       </div>
     </div>
+  </header>
 
-    <script>
-      requestIdleCallback(()=>{
-        const overlay=document.getElementById("lightbox-overlay");
-        const imgEl=document.getElementById("lightbox-img");
-        const videoEl=document.getElementById("lightbox-video");
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="index.html#work"><span data-i18n="nav.work">Work</span></a>
+      <a href="index.html#toolkit"><span data-i18n="nav.toolkit">Skills</span></a>
+      <a href="index.html#background"><span data-i18n="nav.about">About</span></a>
+      <a href="index.html#contact"><span data-i18n="nav.contact">Contact</span></a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener"><span data-i18n="nav.resume">Resume</span></a>
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+      </div>
+    </div>
+  </div>
 
-        function openVideo(from){
-          videoEl.pause();videoEl.innerHTML="";
-          from.querySelectorAll("source").forEach(s=>{
-            const c=document.createElement("source");
-            c.src=s.src;c.type=s.type;videoEl.appendChild(c);
-          });
-          imgEl.style.display="none";videoEl.style.display="block";
-          overlay.classList.add("visible");
-          document.body.style.overflow="hidden";
-          videoEl.muted=true;videoEl.volume=0;videoEl.removeAttribute("controls");
-          videoEl.load();videoEl.play().catch(()=>{});
-        }
-        function closeVideo(){
-          overlay.classList.remove("visible");
-          document.body.style.overflow="";
-          videoEl.pause();videoEl.innerHTML="";
-        }
+  <main id="main">
+    <section class="p-hero">
+      <div class="container">
+        <div class="p-hero__top">
+          <a class="back" href="index.html#work">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            <span data-i18n="common.back">Back to portfolio</span>
+          </a>
+          <span class="p-hero__crumb" data-i18n="hero.crumb">STEAM RELEASE · 2024</span>
+        </div>
 
-        document.querySelectorAll(".detail-block video, .video-container-2 video").forEach(el=>{
-          el.addEventListener("click",()=>openVideo(el));
-          el.style.cursor="zoom-in";
-        });
+        <div class="p-hero__grid">
+          <h1 class="p-title">Katto:<br><span class="serif">Rising Tides</span></h1>
+          <div>
+            <p class="p-lede" data-i18n="hero.lede">A 3D action-platformer built in Unreal Engine 5 and C++ over seven months with a 17-person studio team, shipped on Steam in July 2024.</p>
+            <div class="chips p-badges">
+              <span class="chip chip--amber" data-i18n="badge.steam">Shipped on Steam</span>
+              <span class="chip chip--cyan" data-i18n="badge.gdwc">GDWC Finalist</span>
+              <span class="chip" data-i18n="badge.rookies">Featured on The Rookies</span>
+            </div>
+          </div>
+        </div>
 
-        videoEl.addEventListener("volumechange",()=>{videoEl.muted=true;videoEl.volume=0;});
-        overlay.addEventListener("click",e=>{if(e.target===overlay)closeVideo();});
-        document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVideo();});
-      });
-    </script>
+        <div class="p-media">
+          <video id="hero-vid" data-autoplay muted loop playsinline preload="none" poster="images/Katto/screenshot_0-DMann.webp">
+            <source data-src="images/Katto/katto_trailer.mp4" type="video/mp4">
+          </video>
+          <button class="p-media__ctrl" type="button" data-video-toggle="hero-vid" aria-pressed="false">
+            <span class="is-on-play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              <span data-i18n="common.pause">Pause</span>
+            </span>
+            <span class="is-on-pause">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              <span data-i18n="common.play">Play</span>
+            </span>
+          </button>
+        </div>
 
-    <!-- LAZY VIDEO CONTROL -->
-    <script>
-      document.addEventListener("DOMContentLoaded",()=>{
-        const vids=document.querySelectorAll("video[autoplay]");
-        const observer=new IntersectionObserver(entries=>{
-          entries.forEach(e=>{
-            const v=e.target;
-            if(e.isIntersecting)v.play().catch(()=>{});
-            else v.pause();
-          });
-        },{threshold:0.25});
-        vids.forEach(v=>{
-          v.preload="none";v.muted=true;v.volume=0;
-          observer.observe(v);
-        });
-      });
-    </script>
+        <dl class="facts">
+          <div class="fact"><dt data-i18n="common.platform">Platform</dt><dd data-i18n="fact.platform">PC · Controller support</dd></div>
+          <div class="fact"><dt data-i18n="fact.release.k">Release</dt><dd data-i18n="fact.release.v">July 4, 2024 · Steam</dd></div>
+          <div class="fact"><dt data-i18n="common.engine">Engine</dt><dd>Unreal Engine 5 · C++</dd></div>
+          <div class="fact"><dt data-i18n="common.team">Team</dt><dd data-i18n="fact.team">17 (7 Prog · 2 Design · 7 Art · 5 Audio)</dd></div>
+          <div class="fact"><dt data-i18n="common.duration">Duration</dt><dd data-i18n="fact.duration">7 months (09/2023 – 07/2024)</dd></div>
+        </dl>
+      </div>
+    </section>
 
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".gallery-slider");
-  const slides = document.querySelectorAll(".gallery-slider .slide");
-  const dotsContainer = document.querySelector(".gallery-dots");
+    <section class="p-section">
+      <div class="container">
+        <div class="p-overview" data-reveal>
+          <h2 data-i18n="ov.title">Overview</h2>
+          <div class="p-overview__body">
+            <p data-i18n="ov.p1"><strong>Katto: Rising Tides</strong> is a stylised 3D platformer developed in Unreal Engine 5 by Arcadia Games. Built around fluid movement, expressive combat and a cohesive Mediterranean-inspired aesthetic, the project took us from early prototypes to a public Steam launch in seven months.</p>
+            <p data-i18n="ov.p2">My focus was squarely on runtime infrastructure and gameplay feel: I designed the <strong>custom level-streaming system</strong> that kept memory and frame times predictable across zones, and engineered the <strong>AI and combat behaviour</strong> of the game’s two primary enemies.</p>
+          </div>
+        </div>
 
-  if (!slider || slides.length === 0) return;
+        <div class="metrics" data-reveal>
+          <div class="metric">
+            <div class="metric__v">17</div>
+            <div class="metric__k" data-i18n="m.1">Multidisciplinary contributors across programming, design, art and audio</div>
+          </div>
+          <div class="metric">
+            <div class="metric__v">7 <small data-i18n="m.2.u">months</small></div>
+            <div class="metric__k" data-i18n="m.2">From initial pre-production to full Steam release on July 4, 2024</div>
+          </div>
+          <div class="metric">
+            <div class="metric__v">GDWC</div>
+            <div class="metric__k" data-i18n="m.3">Game Development World Championship finalist &amp; featured on The Rookies</div>
+          </div>
+        </div>
 
-  let index = 0;
-  const INTERVAL_MS = 5000;
-  let timerId = null;
+        <div class="links-row" data-reveal>
+          <a class="btn btn--primary" href="https://store.steampowered.com/app/2999250/Katto_Rising_Tides/" target="_blank" rel="noopener">
+            <span data-i18n="links.steam">View on Steam</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn" href="https://youtu.be/V4q9WDnBvYk" target="_blank" rel="noopener">
+            <span data-i18n="links.trailer">Watch trailer on YouTube</span>
+          </a>
+          <a class="btn" href="https://www.therookies.co/entries/39087" target="_blank" rel="noopener">
+            <span data-i18n="links.rookies">Featured on The Rookies</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-  // Create dots
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => {
-      showSlide(i);
-      resetTimer();
-    });
-    dotsContainer.appendChild(dot);
-  });
+    <div class="divider"></div>
 
-  const dots = dotsContainer.querySelectorAll("span");
+    <section class="p-section">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow" data-i18n="feat.eyebrow">Engineering breakdown</span>
+          <h2 class="p-h2" style="margin-top:14px" data-i18n="feat.title">Systems I <span class="serif">owned.</span></h2>
+        </div>
 
-  function showSlide(i) {
-    slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
-    slides[i].classList.add("active");
-    dots[i].classList.add("active");
-    index = i;
-  }
+        <div class="features">
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">STREAMING</span>
+              <h3 class="feature__title" data-i18n="f1.title">Custom Level-Streaming System</h3>
+              <p data-i18n="f1.p">Designed and implemented a runtime level-streaming layer tailored to our designers’ workflow, letting areas load and unload seamlessly as the player traverses the world.</p>
+              <ul>
+                <li data-i18n="f1.b1"><strong>Predictable runtime budgets:</strong> Keeps only active and adjacent zones resident in memory, cutting draw-call and actor overhead during exploration.</li>
+                <li data-i18n="f1.b2"><strong>Designer-friendly iteration:</strong> Exposed clean volume triggers and sublevel boundaries so designers could rearrange encounters without breaking streaming state.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--cyan">UE5 C++</span><span class="chip" data-i18n="f1.c1">Runtime streaming</span><span class="chip" data-i18n="f1.c2">Memory budget</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/Katto/proyectos1.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f1.cap">Dynamic zone streaming during traversal</figcaption>
+            </figure>
+          </article>
 
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  }
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">COMBAT AI</span>
+              <h3 class="feature__title" data-i18n="f2.title">Enemy Logic &amp; Combat Behaviour</h3>
+              <p data-i18n="f2.p">Programmed the AI state logic and combat loops for the two main enemy archetypes, integrating animation montages and telegraph windows directly with the art team.</p>
+              <ul>
+                <li data-i18n="f2.b1"><strong>Readable telegraphs:</strong> Synchronised wind-up frames, hitboxes and hit-reactions so attacks feel fair and responsive under platforming movement.</li>
+                <li data-i18n="f2.b2"><strong>Tight state transitions:</strong> Smooth blending across idle, patrol, aggro, attack and recovery states without animation locks.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--cyan">Behavior &amp; State</span><span class="chip" data-i18n="f2.c1">Combat timing</span><span class="chip" data-i18n="f2.c2">Animation sync</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/Katto/enemies.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f2.cap">Enemy combat states &amp; animation integration</figcaption>
+            </figure>
+          </article>
 
-  function startTimer() {
-    stopTimer();
-    timerId = setInterval(nextSlide, INTERVAL_MS);
-  }
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">PRODUCTION</span>
+              <h3 class="feature__title" data-i18n="f3.title">Cross-Department Collaboration</h3>
+              <p data-i18n="f3.p">Worked daily alongside 7 programmers, 2 designers and 7 artists (plus 5 musicians), bridging engineering constraints with visual and gameplay polish up to release.</p>
+              <ul>
+                <li data-i18n="f3.b1"><strong>Shared source control &amp; milestones:</strong> Coordinated feature merges, playtest fixes and performance passes under tight academic-to-Steam deadlines.</li>
+                <li data-i18n="f3.b2"><strong>End-to-end ownership:</strong> Participated in profiling, controller feel tuning and ship-readiness QA across the final sprint.</li>
+              </ul>
+              <div class="chips"><span class="chip">Unreal Engine 5</span><span class="chip">Perforce / Git</span><span class="chip" data-i18n="f3.c1">Team of 17</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/Katto/making_of_katto.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f3.cap">Behind the scenes · Arcadia Games production</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  function stopTimer() {
-    if (timerId) {
-      clearInterval(timerId);
-      timerId = null;
-    }
-  }
+    <div class="divider"></div>
 
-  function resetTimer() {
-    startTimer();
-  }
+    <section class="p-section">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow" data-i18n="common.gallery">Gallery</span>
+          <h2 class="p-h2" style="margin-top:14px" data-i18n="gal.title">In-game <span class="serif">captures.</span></h2>
+        </div>
 
-  // Clicking anywhere on the gallery moves to next slide
-  slider.style.cursor = "pointer";
-  slider.addEventListener("click", () => {
-    nextSlide();
-    resetTimer();
-  });
+        <div class="gallery" data-gallery data-reveal>
+          <button type="button" data-full="images/Katto/screenshot_0-DMann.webp" aria-label="Open screenshot 1"><img src="images/Katto/screenshot_0-DMann.webp" alt="Katto: Rising Tides — temple dialogue scene" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/im_MainMenu-DMann.webp" aria-label="Open screenshot 2"><img src="images/Katto/im_MainMenu-DMann.webp" alt="Katto: Rising Tides — main menu" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/screenshot_1-DMann.webp" aria-label="Open screenshot 3"><img src="images/Katto/screenshot_1-DMann.webp" alt="Katto: Rising Tides — gameplay screenshot 1" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/screenshot_3-DMann.webp" aria-label="Open screenshot 4"><img src="images/Katto/screenshot_3-DMann.webp" alt="Katto: Rising Tides — gameplay screenshot 2" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/screenshot_4-DMann.webp" aria-label="Open screenshot 5"><img src="images/Katto/screenshot_4-DMann.webp" alt="Katto: Rising Tides — gameplay screenshot 3" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/Enviro_Agora2-DMann.webp" aria-label="Open screenshot 6"><img src="images/Katto/Enviro_Agora2-DMann.webp" alt="Katto: Rising Tides — Agora environment" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/Enviro_Garden2-DMann.webp" aria-label="Open screenshot 7"><img src="images/Katto/Enviro_Garden2-DMann.webp" alt="Katto: Rising Tides — Garden environment" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/Enviro_Temple1-DMann.webp" aria-label="Open screenshot 8"><img src="images/Katto/Enviro_Temple1-DMann.webp" alt="Katto: Rising Tides — Temple environment" loading="lazy"></button>
+          <button type="button" data-full="images/Katto/Enviro_Boss1-DMann.webp" aria-label="Open screenshot 9"><img src="images/Katto/Enviro_Boss1-DMann.webp" alt="Katto: Rising Tides — Boss arena environment" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
 
-  // Swipe/tap gesture for mobile
-  let touchStartX = 0;
-  slider.addEventListener("touchstart", e => { 
-    touchStartX = e.changedTouches[0].clientX; 
-  }, { passive: true });
-  slider.addEventListener("touchend", e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) < 10 || dx < 0) {
-      nextSlide();
-      resetTimer();
-    }
-  }, { passive: true });
+    <section class="p-section" style="padding-top:0">
+      <div class="container">
+        <a class="p-next" href="engine.html" data-reveal>
+          <div class="p-next__bg"><img src="images/ESAT-graphics_engine/enigne_pic.webp" alt="" aria-hidden="true"></div>
+          <div class="p-next__inner">
+            <div>
+              <span class="p-next__k" data-i18n="common.next">Next project</span>
+              <h2 class="p-next__t">Mordibonx</h2>
+            </div>
+            <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
 
-  // Initialise
-  showSlide(index);
-  startTimer();
-});
-</script>
+  <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+    <div class="lightbox__bar">
+      <span data-lb-count>01 / 09</span>
+      <button class="btn btn--sm" type="button" data-lb-close data-i18n="common.close">Close</button>
+    </div>
+    <div class="lightbox__stage"><img src="" alt=""></div>
+    <div class="lightbox__nav">
+      <button class="btn btn--sm" type="button" data-lb-prev data-i18n="common.prev">Previous</button>
+      <button class="btn btn--sm" type="button" data-lb-next data-i18n="common.nextImg">Next</button>
+    </div>
+  </dialog>
 
-  </body>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span data-year>2026</span> Jaume Berbel</span>
+      <span class="mono" data-i18n="footer.built">Hand-built · HTML &amp; CSS · minimal by design</span>
+      <div class="footer__links">
+        <a href="https://github.com/jaumebv" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="to-top" href="#top"><span data-i18n="footer.top">Back to top</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6M6 12l6-6 6 6"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

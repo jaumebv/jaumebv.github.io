@@ -1,310 +1,249 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Procedural Salamander AI — 2D Simulation in C++ (Raylib)</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/mordibonx.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Procedural Salamander — C++ &amp; Raylib · Jaume Berbel</title>
+  <meta name="description" content="2D procedural animation and AI simulation in C++ and Raylib: inverse kinematics for limbs, spring-mass tail physics and emergent predator–prey fly behaviour." data-i18n-attr="content:meta.desc">
+  <meta name="theme-color" content="#09090b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-    <style>
-      #lightbox-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      }
-      #lightbox-overlay.visible { display: flex; }
-      #lightbox-img, #lightbox-video {
-        max-width: 90vw;
-        max-height: 90vh;
-        border-radius: 12px;
-        background: #000;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-        display: none;
-      }
-    </style>
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <body class="is-preload">
-    <div id="wrapper">
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang');if(l==='es'){d.lang='es';d.classList.add('i18n-pending');setTimeout(function(){d.classList.remove('i18n-pending')},1500);}}catch(e){}})();</script>
 
-      <!-- HEADER -->
-      <header id="header">
-        <div class="inner">
-          <a href="index.html" class="logo" style="text-decoration:none;">
-            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
-            <span class="title">Back to Portfolio</span>
-          </a>
+  <script src="assets/i18n/salamander.es.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body style="--p-accent: #f4b8d0; --p-glow: rgba(244, 184, 208, 0.12)">
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav is-solid">
+    <div class="container container--wide nav__inner">
+      <a class="brand" href="index.html" aria-label="Jaume Berbel — home">
+        <span class="brand__mark" aria-hidden="true"><span>J</span><span>B</span></span>
+        <span>
+          <span class="brand__name">Jaume Berbel</span>
+          <span class="brand__role" data-i18n="brand.role">Game Programmer &amp; C++</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#work" class="is-active" data-i18n="nav.work">Work</a>
+        <a href="index.html#toolkit" data-i18n="nav.toolkit">Skills</a>
+        <a href="index.html#background" data-i18n="nav.about">About</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+          <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
         </div>
-      </header>
-
-      <!-- HERO -->
-      <section class="hero-2003">
-        <div class="inner">
-          <h1>Procedural Salamander AI</h1>
-          <p class="subtitle">2D Simulation · Raylib (C++) · 2023/24</p>
-          <div class="video-container-3">
-            <video autoplay loop muted playsinline preload="none" loading="lazy" poster="images/salamander/thumb_salamander.webp">
-              <source src="images/salamander/salamander_videojugacion.webm" type="video/webm">
-              <source src="images/salamander/salamander_videojugacion.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </section>
-
-      <!-- OVERVIEW -->
-      <section id="overview" class="overview-section">
-        <div class="inner">
-          <h2>Overview</h2>
-          <p>
-            <strong>Procedural Salamander AI</strong> is a 2D simulation built in <strong>C++ using Raylib</strong> by a three-person team. 
-            Inspired by <em>Rain World</em> and similar titles, it explores how <strong>inverse kinematics</strong>, <strong>procedural animation</strong>, and <strong>AI-driven behaviours</strong> 
-            can generate lifelike, emergent movement without using traditional keyframed animation.
-          </p>
-          <ul class="game-info">
-          <li><strong>Engine:</strong> Raylib (C++)</li>
-          <li><strong>Team:</strong> 
-            <a href="https://juanaviles.dev/" target="_blank">Juan Avilés</a>, 
-            <a href="https://jaimegr23.github.io/" target="_blank">Jaime Garrido</a>, 
-            and Jaume Berbel
-          </li>
-          <li><strong>Scope:</strong> AI · Animation</li>
-          <li><strong>Year:</strong> 2023/24</li>
-          <li><strong>Project type:</strong> Academic (AI module final project)</li>
-        </ul>
-
-        </div>
-      </section>
-
-      <!-- DETAILS -->
-      <section id="details" class="details-section">
-        <div class="inner">
-          <h2>Key Features</h2>
-
-          <!-- IK -->
-          <div class="detail-block">
-            <div class="text">
-              <h3>Inverse Kinematics for Limbs</h3>
-              <p>
-                Custom 2D IK algorithms animate each leg dynamically without predefined keyframes.
-                Limbs adjust to terrain and avoid intersections, producing grounded, natural poses.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;" poster="images/salamander/thumb_ik.webp">
-                <source src="images/salamander/salamander_ik.webm" type="video/webm">
-                <source src="images/salamander/salamander_ik.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- Tail -->
-          <div class="detail-block reverse">
-            <div class="text">
-              <h3>Procedural Tail and Body Motion</h3>
-              <p>
-                A spring-mass physics system drives the salamander’s flexible tail and body,
-                giving a snake-like, fluid behaviour that reacts naturally to forces and collisions.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;" poster="images/salamander/thumb_tail.webp">
-                <source src="images/salamander/salamander_tail.webm" type="video/webm">
-                <source src="images/salamander/salamander_tail.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- Flies -->
-          <div class="detail-block">
-            <div class="text">
-              <h3>Reactive Fly Behaviour</h3>
-              <p>
-                AI-driven flies wander randomly and flee when the salamander approaches,
-                generating emergent predator-prey interactions that feel spontaneous and alive.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;" poster="images/salamander/thumb_flies.webp">
-                <source src="images/salamander/salamander_flies.webm" type="video/webm">
-                <source src="images/salamander/salamander_flies.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- DEMO -->
-      <section id="project-demo" class="full-gameplay">
-        <div class="inner">
-          <h2>Project Demo</h2>
-          <div class="video-container-3" style="
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            border-radius: 14px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            max-width: 900px;
-            margin: 0 auto;">
-            <iframe 
-              src="https://www.youtube.com/embed/J9gdxA2Qmjw?si=qBh4KnmQkJc1qya1&amp;controls=0" 
-              title="Procedural Salamander AI – Demo"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              style="
-                position: absolute; 
-                top: 0; 
-                left: 0; 
-                width: 100%; 
-                height: 100%; 
-                border: none; 
-                border-radius: 14px;">
-            </iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer id="footer">
-        <div class="inner">
-          <section>
-            <h2>Contact</h2>
-            <ul class="contact-list">
-              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
-              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
-              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
-              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
-            </ul>
-          </section>
-          <ul class="copyright">
-            <li>&copy; 2025 Jaume Berbel</li>
-          </ul>
-        </div>
-      </footer>
-
-    </div>
-
-    <!-- BASE SCRIPTS -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <!-- FADE-IN -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer");
-        els.forEach(el => { el.style.opacity = "0"; el.style.transform = "translateY(25px)"; });
-      });
-      window.addEventListener("load", () => {
-        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, .full-gameplay, footer");
-        els.forEach((el, i) => {
-          el.style.transition = "opacity 1.1s ease, transform 1.1s ease";
-          setTimeout(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-          }, 250 + i * 150);
-        });
-      });
-    </script>
-
-    <!-- LAZY VIDEO PLAYBACK -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const videos = document.querySelectorAll("video[autoplay]");
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            const v = entry.target;
-            if (entry.isIntersecting) v.play().catch(()=>{});
-            else v.pause();
-          });
-        }, { threshold: 0.25 });
-        videos.forEach(v => {
-          v.preload = "none";
-          v.muted = true;
-          v.volume = 0;
-          observer.observe(v);
-        });
-      });
-    </script>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox-overlay">
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="">
-        <video id="lightbox-video" muted playsinline></video>
+        <a class="btn btn--sm" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener">
+          <span data-i18n="nav.resume">Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="arrow-down" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+        </a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu"><span></span><span></span></button>
       </div>
     </div>
+  </header>
 
-    <script>
-      requestIdleCallback(() => {
-        const overlay = document.getElementById("lightbox-overlay");
-        const imgEl = document.getElementById("lightbox-img");
-        const videoEl = document.getElementById("lightbox-video");
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="index.html#work"><span data-i18n="nav.work">Work</span></a>
+      <a href="index.html#toolkit"><span data-i18n="nav.toolkit">Skills</span></a>
+      <a href="index.html#background"><span data-i18n="nav.about">About</span></a>
+      <a href="index.html#contact"><span data-i18n="nav.contact">Contact</span></a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener"><span data-i18n="nav.resume">Resume</span></a>
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+      </div>
+    </div>
+  </div>
 
-        function openLightboxVideo(fromEl){
-          videoEl.pause();
-          videoEl.innerHTML = "";
-          fromEl.querySelectorAll("source").forEach(s=>{
-            const clone=document.createElement("source");
-            clone.src=s.src; clone.type=s.type;
-            videoEl.appendChild(clone);
-          });
-          imgEl.style.display="none";
-          videoEl.style.display="block";
-          overlay.classList.add("visible");
-          document.body.style.overflow="hidden";
-          videoEl.muted=true;
-          videoEl.volume=0;
-          videoEl.removeAttribute("controls");
-          videoEl.load();
-          videoEl.play().catch(()=>{});
-        }
+  <main id="main">
+    <section class="p-hero">
+      <div class="container">
+        <div class="p-hero__top">
+          <a class="back" href="index.html#work">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            <span data-i18n="common.back">Back to portfolio</span>
+          </a>
+          <span class="p-hero__crumb" data-i18n="hero.crumb">PROCEDURAL AI · 2023/24</span>
+        </div>
 
-        function closeLightbox(){
-          overlay.classList.remove("visible");
-          document.body.style.overflow="";
-          videoEl.pause();
-          videoEl.innerHTML="";
-        }
+        <div class="p-hero__grid">
+          <h1 class="p-title" data-i18n="hero.title">Procedural<br><span class="serif">Salamander</span></h1>
+          <div>
+            <p class="p-lede" data-i18n="hero.lede">A 2D procedural animation and AI simulation in C++ and Raylib—exploring 2D inverse kinematics, spring-mass physics and emergent predator–prey behaviour with zero keyframes.</p>
+            <div class="chips p-badges">
+              <span class="chip chip--green" data-i18n="badge.ik">Zero Keyframes</span>
+              <span class="chip">C++ · Raylib</span>
+              <span class="chip" data-i18n="badge.spring">Spring-Mass Physics</span>
+            </div>
+          </div>
+        </div>
 
-        document.querySelectorAll(".detail-block video, .video-container-3 video").forEach(el=>{
-          el.addEventListener("click",()=>openLightboxVideo(el));
-          el.style.cursor="zoom-in";
-          el.muted=true;
-          el.volume=0;
-        });
+        <div class="p-media">
+          <video id="hero-vid" data-autoplay muted loop playsinline preload="none" poster="images/salamander/salamander.webp">
+            <source data-src="images/salamander/salamander_videojugacion.mp4" type="video/mp4">
+          </video>
+          <button class="p-media__ctrl" type="button" data-video-toggle="hero-vid" aria-pressed="false">
+            <span class="is-on-play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              <span data-i18n="common.pause">Pause</span>
+            </span>
+            <span class="is-on-pause">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              <span data-i18n="common.play">Play</span>
+            </span>
+          </button>
+        </div>
 
-        videoEl.addEventListener("volumechange",()=>{ videoEl.muted=true; videoEl.volume=0; });
-        overlay.addEventListener("click",e=>{ if(e.target===overlay) closeLightbox(); });
-        document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeLightbox(); });
-      });
-    </script>
+        <dl class="facts">
+          <div class="fact"><dt data-i18n="fact.fw.k">Language &amp; Framework</dt><dd>C++ · Raylib</dd></div>
+          <div class="fact"><dt data-i18n="fact.tech.k">Techniques</dt><dd data-i18n="fact.tech.v">2D Inverse Kinematics · Spring-Mass</dd></div>
+          <div class="fact"><dt data-i18n="common.team">Team</dt><dd>Jaume Berbel, <a href="https://juanaviles.dev/" target="_blank" rel="noopener">Juan Avilés</a> &amp; <a href="https://jaimegr23.github.io/" target="_blank" rel="noopener">Jaime Garrido</a></dd></div>
+          <div class="fact"><dt data-i18n="common.type">Type</dt><dd data-i18n="fact.type.v">Academic AI module final project · 2023/24</dd></div>
+        </dl>
+      </div>
+    </section>
 
-    <!-- ===== BACK TO TOP ARROW ===== -->
-    <a href="#wrapper" class="back-to-top" title="Back to top">
-      <i class="icon solid fa-arrow-up"></i>
-    </a>
+    <section class="p-section">
+      <div class="container">
+        <div class="p-overview" data-reveal>
+          <h2 data-i18n="ov.title">Overview</h2>
+          <div class="p-overview__body">
+            <p data-i18n="ov.p1">Inspired by games like <strong>Rain World</strong>, <strong>Procedural Salamander AI</strong> was built in C++ using Raylib by a three-person team to explore how procedural animation and reactive AI can produce lifelike creature movement without a single keyframed sprite.</p>
+            <p data-i18n="ov.p2">Every stride, spine bend, tail whip and tongue flick emerges live from inverse kinematics, spring-mass chains and autonomous predator–prey perception—accompanied by real-time ImGui debug visualisers for joints, vision cones and targets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script>
-    document.addEventListener("scroll", () => {
-      const btn = document.querySelector(".back-to-top");
-      if (window.scrollY > 400) {
-        btn.classList.add("visible");
-      } else {
-        btn.classList.remove("visible");
-      }
-    });
-    </script>
-  </body>
+    <div class="divider"></div>
+
+    <section class="p-section">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow" data-i18n="feat.eyebrow">Key systems</span>
+          <h2 class="p-h2" style="margin-top:14px" data-i18n="feat.title">Motion from <span class="serif">math &amp; rules.</span></h2>
+        </div>
+
+        <div class="features">
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">INVERSE KINEMATICS</span>
+              <h3 class="feature__title" data-i18n="f1.title">2D Inverse Kinematics for Limbs</h3>
+              <p data-i18n="f1.p">Custom 2D IK solvers compute joint angles dynamically for all four legs without predefined animation curves.</p>
+              <ul>
+                <li data-i18n="f1.b1"><strong>Adaptive foot placement:</strong> Feet step smoothly toward anchor targets as the spine advances while avoiding joint flips or intersections.</li>
+                <li data-i18n="f1.b2"><strong>Debug-friendly:</strong> Live joint overlays visualise target anchors, segment constraints and limb reach in real time.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--green">2D IK</span><span class="chip" data-i18n="f1.c1">Procedural gait</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/salamander/salamander_ik.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f1.cap">Dynamic 2D limb IK stepping as the body moves</figcaption>
+            </figure>
+          </article>
+
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">SPRING-MASS PHYSICS</span>
+              <h3 class="feature__title" data-i18n="f2.title">Procedural Tail &amp; Body Dynamics</h3>
+              <p data-i18n="f2.p">A spring-mass physics chain drives the salamander’s segmented spine and flexible tail, producing fluid, snake-like motion that reacts physically to turns and impulses.</p>
+              <ul>
+                <li data-i18n="f2.b1"><strong>Distance &amp; angular constraints:</strong> Preserves body volume while letting waves propagate naturally down the tail.</li>
+                <li data-i18n="f2.b2"><strong>Force-reactive motion:</strong> Sharp directional turns whip the tail proportionally to velocity and curvature.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--green" data-i18n="f2.c1">Spring-mass chain</span><span class="chip">C++ · Raylib</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/salamander/salamander_tail.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f2.cap">Spring-mass spine and tail reacting to steering forces</figcaption>
+            </figure>
+          </article>
+
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">EMERGENT AI</span>
+              <h3 class="feature__title" data-i18n="f3.title">Reactive Predator–Prey Fly Behaviour</h3>
+              <p data-i18n="f3.p">Autonomous flies wander with steering behaviours and scatter whenever they detect the salamander’s approach, triggering spontaneous hunting chases and tongue strikes.</p>
+              <ul>
+                <li data-i18n="f3.b1"><strong>Perception cones &amp; target selection:</strong> The salamander tracks visible prey within its field of view and prioritises the closest fly.</li>
+                <li data-i18n="f3.b2"><strong>Emergent chases:</strong> Simple local rules produce unpredictable, organic hunting arcs every run.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--green" data-i18n="f3.c1">Steering AI</span><span class="chip" data-i18n="f3.c2">Perception cones</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/salamander/salamander_flies.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f3.cap">Flies evading while the salamander locks onto the nearest target</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="p-section">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow" data-i18n="common.watchDemo">Project demo</span>
+          <h2 class="p-h2" style="margin-top:14px" data-i18n="yt.title">Full simulation <span class="serif">demo.</span></h2>
+        </div>
+
+        <div class="yt" data-yt="J9gdxA2Qmjw" role="button" tabindex="0" aria-label="Play Procedural Salamander demo" data-reveal>
+          <img src="images/salamander/salamander.webp" alt="Procedural Salamander AI simulation demo thumbnail" loading="lazy">
+          <div class="yt__play">
+            <span>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              <span data-i18n="common.watchDemo">Watch demo</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-section" style="padding-top:0">
+      <div class="container">
+        <a class="p-next" href="2003.html" data-reveal>
+          <div class="p-next__bg"><img src="images/2003/2003_logo.webp" alt="" aria-hidden="true"></div>
+          <div class="p-next__inner">
+            <div>
+              <span class="p-next__k" data-i18n="common.next">Next project</span>
+              <h2 class="p-next__t">2003</h2>
+            </div>
+            <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span data-year>2026</span> Jaume Berbel</span>
+      <span class="mono" data-i18n="footer.built">Hand-built · HTML &amp; CSS · minimal by design</span>
+      <div class="footer__links">
+        <a href="https://github.com/jaumebv" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="to-top" href="#top"><span data-i18n="footer.top">Back to top</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6M6 12l6-6 6 6"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

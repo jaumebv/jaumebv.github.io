@@ -1,362 +1,288 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Multiplayer Shooter — Cross-Engine UDP Networking</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Cross-Engine Multiplayer Shooter — Jaume Berbel</title>
+  <meta name="description" content="Cross-engine UDP/ENet multiplayer shooter: standalone authoritative C# server hosting Unity (C#) and Unreal Engine (C++) clients in the same capture-the-flag match." data-i18n-attr="content:meta.desc">
+  <meta name="theme-color" content="#09090b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-    <!-- Lightbox mínimo (solo para el overlay y tamaño) -->
-    <style>
-      #lightbox-overlay{
-        position:fixed; inset:0; display:none;
-        align-items:center; justify-content:center;
-        background:rgba(0,0,0,.9); z-index:9999;
-      }
-      #lightbox-overlay.visible{ display:flex; }
-      #lightbox-img, #lightbox-video{
-        max-width:90vw; max-height:90vh;
-        border-radius:12px; background:#000;
-        box-shadow:0 8px 25px rgba(0,0,0,.35);
-      }
-      #lightbox-img{ display:none; }
-      #lightbox-video{ display:none; }
-    </style>
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <body class="is-preload">
-    <div id="wrapper">
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang');if(l==='es'){d.lang='es';d.classList.add('i18n-pending');setTimeout(function(){d.classList.remove('i18n-pending')},1500);}}catch(e){}})();</script>
 
-      <!-- ================= HEADER ================= -->
-      <header id="header">
-        <div class="inner">
-          <a href="index.html" class="logo" style="text-decoration:none;">
-            <span class="symbol"><i class="icon solid fa-arrow-left"></i></span>
-            <span class="title">Back to Portfolio</span>
-          </a>
+  <script src="assets/i18n/multiplayer_shooter.es.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body style="--p-accent: #f4b8d0; --p-glow: rgba(244, 184, 208, 0.12)">
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav is-solid">
+    <div class="container container--wide nav__inner">
+      <a class="brand" href="index.html" aria-label="Jaume Berbel — home">
+        <span class="brand__mark" aria-hidden="true"><span>J</span><span>B</span></span>
+        <span>
+          <span class="brand__name">Jaume Berbel</span>
+          <span class="brand__role" data-i18n="brand.role">Game Programmer &amp; C++</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#work" class="is-active" data-i18n="nav.work">Work</a>
+        <a href="index.html#toolkit" data-i18n="nav.toolkit">Skills</a>
+        <a href="index.html#background" data-i18n="nav.about">About</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+          <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
         </div>
-      </header>
-      <!-- ================= END HEADER ================= -->
-
-      <!-- ================= HERO ================= -->
-      <section class="hero-2003">
-        <div class="inner">
-          <h1>Multiplayer Shooter — Cross-Engine UDP Networking</h1>
-          <p class="subtitle">C# · C++ · Unity · Unreal Engine · Custom UDP Server · 2024/25</p>
-
-          <div class="video-container-3">
-            <video autoplay loop muted playsinline preload="none" loading="lazy">
-              <source src="images/MultiplayerGame/shooting.webm" type="video/webm">
-              <source src="images/MultiplayerGame/shooting.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </section>
-      <!-- ================= END HERO ================= -->
-
-      <!-- ================= OVERVIEW ================= -->
-      <section id="overview" class="overview-section">
-        <div class="inner">
-          <h2>Overview</h2>
-          <p>
-            <strong>Multiplayer Shooter</strong> is a cross-engine networking project featuring a custom <strong>UDP server</strong> (C#) and two interchangeable clients built in <strong>Unity</strong> (C#) and <strong>Unreal Engine</strong> (C++). 
-            Both clients share the same lightweight protocol to synchronise <em>movement, shooting, flags, pickups, scoring</em> and match state in real time.
-          </p>
-          <ul class="game-info">
-            <li><strong>Server:</strong> Standalone C# (UDP sockets)</li>
-            <li><strong>Clients:</strong> Unity (C#) &amp; Unreal (C++)</li>
-            <li><strong>Networking:</strong> Custom text-based packets over UDP</li>
-            <li><strong>Core systems:</strong> Team assignment · Flag capture · Pickups · Respawn · Scoreboard</li>
-            <li><strong>Year:</strong> 2024/25</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ================= SERVER ================= -->
-      <section id="server" class="details-section">
-        <div class="inner">
-          <h2>Networking System (Server)</h2>
-          <div class="detail-block">
-            <div class="text">
-              <h3>Authoritative UDP Server</h3>
-              <p>
-                The server manages <strong>connections, UIDs, team balancing, scores</strong> and game-wide broadcasts. 
-                On connect, the client receives a unique <em>UID</em>, team assignment and the current scoreboard. 
-                Disconnections are handled gracefully, removing transforms and team membership and notifying all clients.
-              </p>
-              <ul>
-                <li>Team and UID registries for fast look-ups and clean teardown.</li>
-                <li>Broadcast tick for transforms, scores and match events.</li>
-                <li>Packet router with dedicated handlers (shots, flags, pickups).</li>
-              </ul>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
-                <source src="images/MultiplayerGame/client_disconnecting.webm" type="video/webm">
-                <source src="images/MultiplayerGame/client_disconnecting.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= CLIENTS ================= -->
-      <section id="clients" class="details-section">
-        <div class="inner">
-          <h2>Unity &amp; Unreal Clients</h2>
-
-          <div class="detail-block">
-            <div class="text">
-              <h3>Shared Architecture</h3>
-              <p>
-                Both clients follow the same structure: <strong>NetworkManager</strong> and <strong>GameManager</strong>. 
-                The protocol is engine-agnostic, so features remain identical in Unity and Unreal.
-              </p>
-              <ul>
-                <li>Deterministic packet format and handlers on both engines.</li>
-                <li>Spawn/teardown mirrored across Unity and Unreal.</li>
-                <li>Coroutines/Timers for periodic sync and effects.</li>
-              </ul>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
-                <source src="images/MultiplayerGame/moving.webm" type="video/webm">
-                <source src="images/MultiplayerGame/moving.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <div class="detail-block reverse">
-            <div class="text">
-              <h3>Shooting &amp; Damage</h3>
-              <p>
-                A raycast determines aim direction; physical projectiles are spawned with lifetime control. 
-                On hit, damage is validated locally and relayed to the server. 
-                Friendly fire is disabled; when HP reaches zero, the player drops the flag (if any) and respawns.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
-                <source src="images/MultiplayerGame/flags&shooting.webm" type="video/webm">
-                <source src="images/MultiplayerGame/flags&shooting.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="text">
-              <h3>Flag System</h3>
-              <p>
-                Two flags (one per team) support <em>Picked, Lost, Returned, Captured</em> states. 
-                The flag follows the carrier, returns when dropped, and can only be captured if the home flag is present.
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
-                <source src="images/MultiplayerGame/capturing_flag.webm" type="video/webm">
-                <source src="images/MultiplayerGame/capturing_flag.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <div class="detail-block reverse">
-            <div class="text">
-              <h3>Pickups</h3>
-              <p>
-                <strong>Health</strong> and <strong>Speed</strong> pickups derive from a shared base class. 
-                Only the local owner triggers pickup messages; the object hides and respawns after a delay. 
-              </p>
-            </div>
-            <div class="video">
-              <video autoplay loop muted playsinline preload="none" loading="lazy" style="max-width: 90%;">
-                <source src="images/MultiplayerGame/pickups.webm" type="video/webm">
-                <source src="images/MultiplayerGame/pickups.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ================= SECURITY ================= -->
-      <section id="security" class="overview-section">
-        <div class="inner">
-          <h2>Security &amp; Exploit Mitigation</h2>
-          <ul>
-            <li><strong>Position validation:</strong> speed/distance thresholds between frames.</li>
-            <li><strong>UID ownership:</strong> bind UID to sender endpoint, reject mismatches.</li>
-            <li><strong>Action validation:</strong> verify capture/flag preconditions.</li>
-            <li><strong>Rate limiting &amp; bans:</strong> throttle bursts, flag invalid packets.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ================= FOOTER ================= -->
-      <footer id="footer">
-        <div class="inner">
-          <section>
-            <h2>Contact</h2>
-            <ul class="contact-list">
-              <li><i class="icon solid fa-envelope"></i> <a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a></li>
-              <li><i class="icon brands fa-github"></i> <a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a></li>
-              <li><i class="icon brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a></li>
-              <li><i class="icon solid fa-file"></i> <a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a></li>
-            </ul>
-          </section>
-          <ul class="copyright">
-            <li>&copy; 2025 Jaume Berbel</li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
-    <!-- BASE SCRIPTS -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <!-- FADE-IN ANIMATION -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, footer");
-        els.forEach(el => { el.style.opacity = "0"; el.style.transform = "translateY(25px)"; });
-      });
-      window.addEventListener("load", () => {
-        const els = document.querySelectorAll(".hero-2003, .overview-section, .details-section, .detail-block, .video, footer");
-        els.forEach((el, i) => {
-          el.style.transition = "opacity 1.1s ease, transform 1.1s ease";
-          setTimeout(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-          }, 250 + i * 150);
-        });
-      });
-    </script>
-
-    <!-- LAZY VIDEO PLAYBACK -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const videos = document.querySelectorAll("video[autoplay]");
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            const video = entry.target;
-            if (entry.isIntersecting) {
-              video.play().catch(() => {});
-            } else {
-              video.pause();
-            }
-          });
-        }, { threshold: 0.25 });
-        videos.forEach(v => {
-          v.preload = "none";
-          observer.observe(v);
-        });
-      });
-    </script>
-
-    <!-- LIGHTBOX (solo arreglado el click) -->
-    <div id="lightbox-overlay">
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="">
-        <video id="lightbox-video" muted playsinline controls></video>
+        <a class="btn btn--sm" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener">
+          <span data-i18n="nav.resume">Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="arrow-down" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+        </a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu"><span></span><span></span></button>
       </div>
     </div>
+  </header>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const overlay = document.getElementById("lightbox-overlay");
-      const imgEl = document.getElementById("lightbox-img");
-      const videoEl = document.getElementById("lightbox-video");
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="index.html#work"><span data-i18n="nav.work">Work</span></a>
+      <a href="index.html#toolkit"><span data-i18n="nav.toolkit">Skills</span></a>
+      <a href="index.html#background"><span data-i18n="nav.about">About</span></a>
+      <a href="index.html#contact"><span data-i18n="nav.contact">Contact</span></a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener"><span data-i18n="nav.resume">Resume</span></a>
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+      </div>
+    </div>
+  </div>
 
-      // siempre muteado y sin controles
-      videoEl.controls = false;
-      videoEl.muted = true;
-      videoEl.volume = 0;
+  <main id="main">
+    <section class="p-hero">
+      <div class="container">
+        <div class="p-hero__top">
+          <a class="back" href="index.html#work">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            <span data-i18n="common.back">Back to portfolio</span>
+          </a>
+          <span class="p-hero__crumb" data-i18n="hero.crumb">NETWORKING · 2024/25</span>
+        </div>
 
-      function openLightboxVideo(fromEl) {
-        // limpiar fuentes anteriores
-        videoEl.pause();
-        videoEl.innerHTML = "";
+        <div class="p-hero__grid">
+          <h1 class="p-title" data-i18n="hero.title">Multiplayer<br><span class="serif">Shooter</span></h1>
+          <div>
+            <p class="p-lede" data-i18n="hero.lede">A cross-engine capture-the-flag game where Unity (C#) and Unreal Engine (C++) clients connect to the same standalone C# ENet/UDP server and play together in real time.</p>
+            <div class="chips p-badges">
+              <span class="chip chip--amber" data-i18n="badge.cross">Unity ⇄ Unreal</span>
+              <span class="chip chip--cyan">C# · ENet · UDP</span>
+              <span class="chip" data-i18n="badge.auth">Authoritative Server</span>
+            </div>
+          </div>
+        </div>
 
-        // clonar todas las <source> del vídeo clicado
-        const sources = fromEl.querySelectorAll("source");
-        if (sources.length) {
-          sources.forEach(s => {
-            const clone = document.createElement("source");
-            clone.src = s.getAttribute("src");
-            const t = s.getAttribute("type");
-            if (t) clone.type = t;
-            videoEl.appendChild(clone);
-          });
-        } else if (fromEl.currentSrc || fromEl.src) {
-          const clone = document.createElement("source");
-          clone.src = fromEl.currentSrc || fromEl.src;
-          videoEl.appendChild(clone);
-        }
+        <div class="p-media">
+          <video id="hero-vid" data-autoplay muted loop playsinline preload="none" poster="images/MultiplayerGame/multiplayer_game.webp">
+            <source data-src="images/MultiplayerGame/shooting.mp4" type="video/mp4">
+          </video>
+          <button class="p-media__ctrl" type="button" data-video-toggle="hero-vid" aria-pressed="false">
+            <span class="is-on-play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              <span data-i18n="common.pause">Pause</span>
+            </span>
+            <span class="is-on-pause">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              <span data-i18n="common.play">Play</span>
+            </span>
+          </button>
+        </div>
 
-        // configuración de seguridad (evita desmutear)
-        videoEl.muted = true;
-        videoEl.volume = 0;
-        videoEl.removeAttribute("controls");
-        videoEl.setAttribute("muted", "");
+        <dl class="facts">
+          <div class="fact"><dt data-i18n="fact.srv.k">Server</dt><dd data-i18n="fact.srv.v">Standalone C# · ENet / UDP</dd></div>
+          <div class="fact"><dt data-i18n="fact.cli.k">Clients</dt><dd>Unity (C#) &amp; Unreal Engine (C++)</dd></div>
+          <div class="fact"><dt data-i18n="fact.mode.k">Mode</dt><dd data-i18n="fact.mode.v">Capture-the-Flag · Real-time sync</dd></div>
+          <div class="fact"><dt data-i18n="common.year">Year</dt><dd>2024/25</dd></div>
+        </dl>
+      </div>
+    </section>
 
-        // mostrar vídeo
-        imgEl.style.display = "none";
-        videoEl.style.display = "block";
-        overlay.classList.add("visible");
-        document.body.style.overflow = "hidden";
+    <section class="p-section">
+      <div class="container">
+        <div class="p-overview" data-reveal>
+          <h2 data-i18n="ov.title">Overview</h2>
+          <div class="p-overview__body">
+            <p data-i18n="ov.p1">Built at Coventry University, this project decouples multiplayer simulation from any single engine’s built-in replication layer. An <strong>authoritative C# server</strong> using ENet/UDP acts as the single source of truth for connections, teams, flag states, pickups and scoring.</p>
+            <p data-i18n="ov.p2">Two independent clients—one in <strong>Unity (C#)</strong> and one in <strong>Unreal Engine (C++)</strong>—implement the exact same lightweight packet protocol so players on different engines share the same arena seamlessly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        videoEl.load();
-        videoEl.play().catch(() => {});
-      }
+    <div class="divider"></div>
 
-      function closeLightbox() {
-        overlay.classList.remove("visible");
-        document.body.style.overflow = "";
-        videoEl.pause();
-        videoEl.innerHTML = "";
-      }
+    <section class="p-section">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow" data-i18n="feat.eyebrow">Network architecture</span>
+          <h2 class="p-h2" style="margin-top:14px" data-i18n="feat.title">Server, protocol &amp; <span class="serif">gameplay sync.</span></h2>
+        </div>
 
-      // Click en los vídeos embebidos
-      document.querySelectorAll(".detail-block video, .video-container-3 video").forEach(el => {
-        el.addEventListener("click", () => openLightboxVideo(el));
-        el.style.cursor = "zoom-in";
-        el.muted = true;
-        el.volume = 0;
-        el.removeAttribute("controls");
-      });
+        <div class="features">
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">AUTHORITATIVE SERVER</span>
+              <h3 class="feature__title" data-i18n="f1.title">Connections, UIDs &amp; Broadcast Tick</h3>
+              <p data-i18n="f1.p">On join, the C# server assigns a unique UID, balances teams and streams the current scoreboard and match state. Disconnections tear down player transforms cleanly across all peers.</p>
+              <ul>
+                <li data-i18n="f1.b1"><strong>Team &amp; UID registries:</strong> Fast O(1) lookups for entity routing and clean disconnect teardown.</li>
+                <li data-i18n="f1.b2"><strong>Dedicated packet router:</strong> Separate handlers for movement transforms, shots, flag transitions and pickup timers.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--amber">C# Server</span><span class="chip">ENet / UDP</span><span class="chip" data-i18n="f1.c1">Graceful teardown</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/MultiplayerGame/client_disconnecting.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f1.cap">Live connect/disconnect handling across clients</figcaption>
+            </figure>
+          </article>
 
-      // bloquear intento de desmuteo
-      videoEl.addEventListener("volumechange", () => {
-        if (!videoEl.muted || videoEl.volume > 0) {
-          videoEl.muted = true;
-          videoEl.volume = 0;
-        }
-      });
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">SHARED CLIENT ARCHITECTURE</span>
+              <h3 class="feature__title" data-i18n="f2.title">Mirrored Unity &amp; Unreal Clients</h3>
+              <p data-i18n="f2.p">Both clients implement the exact same architectural boundary—<strong>NetworkManager</strong> and <strong>GameManager</strong>—over an engine-agnostic packet contract.</p>
+              <ul>
+                <li data-i18n="f2.b1"><strong>Deterministic packet contract:</strong> Identical message framing and coordinate mapping between Unity C# and Unreal C++.</li>
+                <li data-i18n="f2.b2"><strong>Mirrored lifecycle:</strong> Spawning, interpolation and periodic sync driven by engine-native coroutines and timers.</li>
+              </ul>
+              <div class="chips"><span class="chip">Unity C#</span><span class="chip">Unreal C++</span><span class="chip" data-i18n="f2.c1">Engine-agnostic protocol</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/MultiplayerGame/moving.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f2.cap">Cross-engine transform &amp; movement sync</figcaption>
+            </figure>
+          </article>
 
-      overlay.addEventListener("click", e => { if (e.target === overlay) closeLightbox(); });
-      document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
-    });
-  </script>
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">COMBAT &amp; CAPTURE THE FLAG</span>
+              <h3 class="feature__title" data-i18n="f3.title">Shooting, Damage &amp; Flag State Machine</h3>
+              <p data-i18n="f3.p">Raycast aim spawns physical projectiles with lifetime tracking while two team flags transition strictly across <code>Picked</code>, <code>Lost</code>, <code>Returned</code> and <code>Captured</code> states.</p>
+              <ul>
+                <li data-i18n="f3.b1"><strong>Damage &amp; flag drops:</strong> Friendly fire is blocked; reaching 0 HP automatically drops any carried flag and triggers respawn.</li>
+                <li data-i18n="f3.b2"><strong>Capture rules:</strong> Capturing requires the home flag to be safely docked on base.</li>
+              </ul>
+              <div class="chips"><span class="chip chip--amber" data-i18n="f3.c1">CTF State Machine</span><span class="chip" data-i18n="f3.c2">Hit relay</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/MultiplayerGame/flags&amp;shooting.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f3.cap">Combat, damage sync and flag interactions</figcaption>
+            </figure>
+          </article>
 
-    <!-- ===== BACK TO TOP ARROW ===== -->
-    <a href="#wrapper" class="back-to-top" title="Back to top">
-      <i class="icon solid fa-arrow-up"></i>
-    </a>
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">MATCH EVENTS &amp; PICKUPS</span>
+              <h3 class="feature__title" data-i18n="f4.title">Flag Captures &amp; Synchronised Pickups</h3>
+              <p data-i18n="f4.p">Health and Speed pickups share a unified base class; only the local client owner triggers a pickup request so the server broadcasts hiding and respawn timers to everyone.</p>
+              <ul>
+                <li data-i18n="f4.b1"><strong>Single-owner authority:</strong> Prevents duplicate pickup triggers from remote proxy avatars.</li>
+                <li data-i18n="f4.b2"><strong>Server-timed respawns:</strong> Match scoreboard and pickup cooldowns stay synchronised across both engines.</li>
+              </ul>
+              <div class="chips"><span class="chip" data-i18n="f4.c1">Scoreboard sync</span><span class="chip" data-i18n="f4.c2">Shared pickups</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/MultiplayerGame/capturing_flag.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f4.cap">Flag capture &amp; score broadcast across Unity and Unreal</figcaption>
+            </figure>
+          </article>
 
-    <script>
-    document.addEventListener("scroll", () => {
-      const btn = document.querySelector(".back-to-top");
-      if (window.scrollY > 400) {
-        btn.classList.add("visible");
-      } else {
-        btn.classList.remove("visible");
-      }
-    });
-    </script>
-    
-  </body>
+          <article class="feature" data-reveal>
+            <div class="feature__text">
+              <span class="feature__idx">WORLD OBJECTS</span>
+              <h3 class="feature__title" data-i18n="f5.title">Health &amp; Speed Pickups in Action</h3>
+              <p data-i18n="f5.p">Shared base pickup logic across both engines ensures identical hitbox checks, temporary hiding and timed re-activation after cooldown.</p>
+              <div class="chips"><span class="chip">Health</span><span class="chip">Speed</span><span class="chip" data-i18n="f5.c1">Replicated state</span></div>
+            </div>
+            <figure class="feature__media">
+              <video data-autoplay muted loop playsinline preload="none"><source data-src="images/MultiplayerGame/pickups.mp4" type="video/mp4"></video>
+              <figcaption data-i18n="f5.cap">Pickups disappearing and respawning across clients</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="p-section">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow" data-i18n="sec.eyebrow">Hardening</span>
+          <h2 class="p-h2" style="margin-top:14px" data-i18n="sec.title">Security &amp; <span class="serif">exploit mitigation.</span></h2>
+        </div>
+
+        <div class="callout" data-reveal>
+          <div class="callout__item">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span data-i18n="sec.1.t">Position validation</span></h4>
+            <p data-i18n="sec.1.p">Checks speed and distance deltas between frames to reject impossible teleports or speed hacks.</p>
+          </div>
+          <div class="callout__item">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-i18n="sec.2.t">UID ownership</span></h4>
+            <p data-i18n="sec.2.p">Binds each assigned UID to its sender IP/port endpoint and drops spoofed packets immediately.</p>
+          </div>
+          <div class="callout__item">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span data-i18n="sec.3.t">Action validation</span></h4>
+            <p data-i18n="sec.3.p">Verifies capture, flag and pickup preconditions server-side rather than trusting client claims.</p>
+          </div>
+          <div class="callout__item">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg><span data-i18n="sec.4.t">Rate limiting &amp; bans</span></h4>
+            <p data-i18n="sec.4.p">Throttles packet bursts and flags or bans endpoints sending malformed or flooded datagrams.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-section" style="padding-top:0">
+      <div class="container">
+        <a class="p-next" href="salamander.html" data-reveal>
+          <div class="p-next__bg"><img src="images/salamander/salamander.webp" alt="" aria-hidden="true"></div>
+          <div class="p-next__inner">
+            <div>
+              <span class="p-next__k" data-i18n="common.next">Next project</span>
+              <h2 class="p-next__t" data-i18n="next.title">Procedural Salamander</h2>
+            </div>
+            <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span data-year>2026</span> Jaume Berbel</span>
+      <span class="mono" data-i18n="footer.built">Hand-built · HTML &amp; CSS · minimal by design</span>
+      <div class="footer__links">
+        <a href="https://github.com/jaumebv" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="to-top" href="#top"><span data-i18n="footer.top">Back to top</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6M6 12l6-6 6 6"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

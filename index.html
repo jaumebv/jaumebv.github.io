@@ -1,298 +1,510 @@
-<!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Jaume Berbel Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Jaume Berbel — Game Programmer &amp; C++ Software Engineer</title>
+  <meta name="description" content="Game Programmer and C++ Software Engineer specialising in real-time graphics, custom engines, GPU compute and gameplay systems. Creator of Mordibonx Engine and Katto: Rising Tides (Steam)." data-i18n-attr="content:meta.desc">
+  <meta name="theme-color" content="#09090b">
+  <meta name="author" content="Jaume Berbel">
+  <link rel="canonical" href="https://jaumebv.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jaume Berbel — Game Programmer &amp; C++ Software Engineer">
+  <meta property="og:description" content="Game Programmer specialising in real-time graphics, custom C++ engines, GPU compute and gameplay systems.">
+  <meta property="og:url" content="https://jaumebv.github.io/">
+  <meta property="og:image" content="https://jaumebv.github.io/images/Katto/screenshot_0-DMann.webp">
+  <meta name="twitter:card" content="summary_large_image">
 
-			<!-- ================= BOTTOM NAVIGATION ================= -->
-			<div class="bottom-bar">
-			<a href="#intro" class="bb-item active">Intro</a>
-			<a href="#projects-title" class="bb-item">Projects</a>
-			<a href="#about" class="bb-item">About Me</a>
-			<a href="#footer" class="bb-item">Contact</a>
-			</div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-			<!-- ================= END BOTTOM NAVIGATION ================= -->
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang');if(l==='es'){d.lang='es';d.classList.add('i18n-pending');setTimeout(function(){d.classList.remove('i18n-pending')},1500);}}catch(e){}})();</script>
 
-
-			<!-- ================= INTRO SECTION ================= -->
-			<section id="intro" class="intro">
-			<div class="inner">
-				<p class="intro-subtitle">Hi, I'm</p>
-				<h1>Jaume Berbel</h1>
-				<p class="intro-desc">
-				Game Programmer passionate about creating smooth, visually coherent experiences that feel great to play.
-				</p>
-				<div class="intro-links">
-				<a href="https://github.com/jaumebv" target="_blank" title="GitHub"><i class="icon brands fa-github"></i></a>
-				<a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" title="LinkedIn"><i class="icon brands fa-linkedin"></i></a>
-				<a href="Jaume-Berbel-Resume.pdf" target="_blank" title="CV"><i class="icon solid fa-file"></i></a>
-				<a href="mailto:jaumebvj@gmail.com" title="Email"><i class="icon solid fa-envelope"></i></a>
-				</div>
-
-
-
-			</div>
-			</section>
-			<!-- ================= END INTRO SECTION ================= -->
-
-
-			<!-- ================= PROJECTS TITLE SECTION ================= -->
-			<section id="projects-title" class="projects-title">
-			<div class="inner">
-				<h2>Featured work</h2>
-
-			</div>
-			</section>
-
-			<!-- ================= END PROJECTS TITLE SECTION ================= -->
-
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<!-- <header>
-								<h1>This is Phantom, a free, fully responsive site<br />
-								template designed by <a href="http://html5up.net">HTML5 UP</a>.</h1>
-								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
-							</header> -->
-							<section class="tiles">
-								<article class="style7">
-									<span class="image">
-									<img class="static" src="images/Katto/Katto_Logo.webp" alt="">
-									<video class="gif" autoplay loop muted playsinline>
-										<source src="images/Katto/katto_gameplay.mp4" type="video/mp4">
-									</video>
-									</span>
-									<a href="katto.html">
-										<h2>Katto Rising Tides</h2>
-										<div class="content">
-											<p>3D platforming game built in Unreal Engine with C++, published on Steam</p>
-										</div>
-										<span class="tag">Unreal Engine</span>
-									</a>
-								</article>
-								<article class="style7">
-									<span class="image">
-									<img class="static" src="images/salamander/salamander.webp" alt="">
-									<video class="gif" autoplay loop muted playsinline>
-										<source src="images/salamander/salamander_gameplay.mp4" type="video/mp4">
-									</video>
-									</span>
-									<a href="salamander.html">
-										<h2>Salamander</h2>
-										<div class="content">
-											<p>Procedural animation and behavior simulation of a salamander in C++</p>
-										</div>
-										<span class="tag">C++, RayLib</span>
-									</a>
-								</article>
-								<article class="style7">
-									<span class="image">
-									<img class="static" src="images/2003/2003_logo.webp" alt="">
-									<video class="gif" autoplay loop muted playsinline>
-										<source src="images/2003/2003_gameplay.mp4" type="video/mp4">
-									</video>
-									</span>
-									<a href="2003.html">
-										<h2>2003</h2>
-										<div class="content">
-											<p>Unity-built tile game for iPhone</p>
-										</div>
-										<span class="tag">Unity</span>
-									</a>
-								</article>
-								<article class="style7">
-									<span class="image">
-									<img class="static" src="images/ESAT-graphics_engine/enigne_pic.webp" alt="">
-									<video class="gif" autoplay loop muted playsinline>
-										<source src="images/ESAT-graphics_engine/lights.mp4" type="video/mp4">
-									</video>
-									</span>
-									<a href="engine.html">
-										<h2>Mordibonx</h2>
-										<div class="content">
-											<p>Custom game engine developed in C++ and OpenGL</p>
-										</div>
-										<span class="tag">C++, OpenGL</span>
-									</a>
-								</article>
-								</article>
-								<article class="style7">
-									<span class="image">
-									<img class="static" src="images/Particles/particles_sim.webp" alt="">
-									<video class="gif" autoplay loop muted playsinline>
-										<source src="images/Particles/particles_simulation.mp4" type="video/mp4">
-									</video>
-									</span>
-									<a href="dipole_sim.html">
-										<h2>Dipole Particle Simulation</h2>
-										<div class="content">
-											<p>3D GPU particle system built with CUDA & OpenCL</p>
-										</div>
-										<span class="tag">C++, Cuda, OpenCL, OpenGL</span>
-									</a>
-								</article>
-								<article class="style7">
-									<span class="image">
-									<img class="static" src="images/MultiplayerGame/multiplayer_game.webp" alt="">
-									<video class="gif" autoplay loop muted playsinline>
-										<source src="images/MultiplayerGame/multiplayer_gameplay.mp4" type="video/mp4">
-									</video>
-									</span>
-									<a href="multiplayer_shooter.html">
-										<h2>Multiplayer Shooter</h2>
-										<div class="content">
-											<p>Cross-engine multiplayer shooter. Unity & Unreal clients powered by a C# server</p>
-										</div>
-										<span class="tag">Unity, Unreal Engine, C#</span>
-									</a>
-								</article>
-							</section>
-						</div>
-					</div>
-
-
-					<!-- ================= ABOUT ME SECTION ================= -->
-					<section id="about" class="about-section">
-					<div class="inner">
-						<h2>About Me</h2>
-
-						<p class="about-text">
-						I studied Game Programming for three years at ESAT (Valencia) and one year at Coventry University (UK). 
-						Over that time, I’ve built a wide range of projects, from custom C++ engines and graphics systems to full Unreal and Unity games. 
-						I’m driven by a focus on polish, performance, and technical design, and I enjoy creating things that feel clean, efficient, and satisfying to use.
-						</p>
-					</div>
-					</section>
-					<!-- ================= END ABOUT ME SECTION ================= -->
-
-					<!-- ================= SKILLS GRID ================= -->
-					<section id="skills" class="skills-section">
-					<div class="inner">
-						<h2>Technical Skills</h2>
-
-						<div class="skills-grid">
-						<div class="skill"><i class="icon solid fa-code"></i> C / C++</div>
-						<div class="skill"><i class="icon brands fa-csharp"></i> C#</div>
-						<div class="skill"><i class="icon brands fa-python"></i> Python</div>
-						<div class="skill"><i class="icon solid fa-cubes"></i> OpenGL</div>
-						<div class="skill"><i class="icon brands fa-unity"></i> Unity</div>
-						<div class="skill"><i class="icon solid fa-cube"></i> Unreal Engine</div>
-						<div class="skill"><i class="icon solid fa-bolt"></i> CUDA</div>
-						<div class="skill"><i class="icon solid fa-atom"></i> OpenCL</div>
-						<div class="skill"><i class="icon solid fa-cube"></i> Blender</div>
-						<div class="skill"><i class="icon brands fa-git-alt"></i> Git</div>
-						<div class="skill"><i class="icon solid fa-server"></i> Perforce</div>
-						<div class="skill"><i class="icon brands fa-html5"></i> HTML</div>
-						<div class="skill"><i class="icon solid fa-bug"></i> RenderDoc</div>
-						<div class="skill"><i class="icon solid fa-window-restore"></i> ImGui</div>
-						<div class="skill"><i class="icon solid fa-laptop-code"></i> Visual Studio</div>
-						</div>
-					</div>
-					</section>
-					<!-- ================= END SKILLS GRID ================= -->
-
-				    <!-- Footer -->
-					<footer id="footer">
-					<div class="inner">
-						<section>
-						<h2>Contact</h2>
-						<ul class="contact-list">
-							<li>
-							<i class="icon solid fa-envelope"></i>
-							<a href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a>
-							</li>
-							<li>
-							<i class="icon brands fa-github"></i>
-							<a href="https://github.com/jaumebv" target="_blank">github.com/jaumebv</a>
-							</li>
-							<li>
-							<i class="icon brands fa-linkedin"></i>
-							<a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank">linkedin.com/in/jaumeberbel/</a>
-							</li>
-							<li>
-							<i class="icon solid fa-file"></i>
-							<a href="Jaume-Berbel-Resume.pdf" target="_blank">View Resume</a>
-							</li>
-							
-						</ul>
-						</section>
-						<ul class="copyright">
-						<li>&copy; 2025 Jaume Berbel</li>
-						<!-- <li>Design: <a href="http://html5up.net">HTML5 UP</a></li> -->
-						</ul>
-					</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section, footer"); // incluye footer
-  const navLinks = document.querySelectorAll(".bb-item");
-
-  function updateActiveLink() {
-    let scrollPos = window.scrollY + window.innerHeight / 2; // punto medio de la pantalla
-    let currentSection = null;
-
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        currentSection = section;
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (currentSection && link.getAttribute("href") === "#" + currentSection.id) {
-        link.classList.add("active");
-      }
-    });
-
-    // Si no hay sección visible (por ejemplo, al tope superior), mantiene el primero activo
-    if (!currentSection) {
-      navLinks.forEach(link => link.classList.remove("active"));
-      navLinks[0].classList.add("active");
-    }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jaume Berbel",
+    "jobTitle": "Game Programmer & C++ Software Engineer",
+    "address": { "@type": "PostalAddress", "addressLocality": "Castellón de la Plana", "addressCountry": "ES" },
+    "email": "mailto:jaumebvj@gmail.com",
+    "url": "https://jaumebv.github.io/",
+    "sameAs": ["https://github.com/jaumebv", "https://www.linkedin.com/in/jaumeberbel/"],
+    "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Coventry University" }, { "@type": "EducationalOrganization", "name": "ESAT Valencia" }]
   }
+  </script>
 
-  window.addEventListener("scroll", updateActiveLink);
-  updateActiveLink();
+  <script src="assets/i18n/index.es.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
 
-  // activación inmediata al hacer clic
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-    });
-  });
-});
-</script>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
+  <!-- ============================== NAV ============================== -->
+  <header class="nav">
+    <div class="container container--wide nav__inner">
+      <a class="brand" href="#top" aria-label="Jaume Berbel — home">
+        <span class="brand__mark" aria-hidden="true"><span>J</span><span>B</span></span>
+        <span>
+          <span class="brand__name">Jaume Berbel</span>
+          <span class="brand__role" data-i18n="brand.role">Game Programmer &amp; C++</span>
+        </span>
+      </a>
 
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#toolkit" data-i18n="nav.toolkit">Skills</a>
+        <a href="#background" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
 
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+          <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+        </div>
+        <a class="btn btn--sm" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener">
+          <span data-i18n="nav.resume">Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="arrow-down" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+        </a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#work"><span data-i18n="nav.work">Work</span></a>
+      <a href="#toolkit"><span data-i18n="nav.toolkit">Skills</span></a>
+      <a href="#background"><span data-i18n="nav.about">About</span></a>
+      <a href="#contact"><span data-i18n="nav.contact">Contact</span></a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener"><span data-i18n="nav.resume">Resume</span></a>
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <p class="hero__status" data-hero-fade style="--d:.05s">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="hero.status">Game Programmer &amp; C++ Engineer</span>
+        </p>
+
+        <h1 class="hero__title">
+          <span class="line"><span style="--d:.1s" data-i18n="hero.l1">Building games,</span></span>
+          <span class="line"><span style="--d:.18s" data-i18n="hero.l2"><span class="accent">custom engines</span> &amp;</span></span>
+          <span class="line"><span style="--d:.26s" data-i18n="hero.l3">real-time systems.</span></span>
+        </h1>
+
+        <p class="hero__lede" data-hero-fade style="--d:.38s" data-i18n="hero.lede">
+          I’m <strong>Jaume Berbel</strong>, a Game Programmer trained at <strong>ESAT Valencia</strong> and <strong>Coventry University</strong>. I love crafting responsive gameplay, custom C++ &amp; OpenGL renderers, and GPU simulations—including shipping <strong>Katto: Rising Tides</strong> on Steam.
+        </p>
+
+        <div class="hero__actions" data-hero-fade style="--d:.48s">
+          <a class="btn btn--primary" href="#work">
+            <span data-i18n="hero.cta">View projects</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener">
+            <span data-i18n="hero.cv">Download CV</span>
+            <svg class="arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+          </a>
+          <div class="hero__socials">
+            <a class="icon-btn" href="https://github.com/jaumebv" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            </a>
+            <a class="icon-btn" href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a class="icon-btn" href="mailto:jaumebvj@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================== WORK ============================== -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow" data-i18n="work.eyebrow">Selected work</span>
+            <h2 class="section-head__title" data-i18n="work.title">Featured <span class="accent">projects.</span></h2>
+          </div>
+          <p class="section-head__kicker" data-reveal style="--d:.08s" data-i18n="work.kicker">Games, custom rendering engines, GPU compute and multiplayer networking built in C++, Unreal Engine 5 and Unity.</p>
+        </div>
+
+        <div class="work-grid">
+          <!-- Katto -->
+          <article class="card card--xl" data-reveal>
+            <div class="card__media">
+              <img src="images/Katto/screenshot_0-DMann.webp" alt="Katto: Rising Tides — in-game temple scene" loading="lazy" decoding="async" width="1920" height="1080">
+              <video muted loop playsinline preload="none" aria-hidden="true"><source data-src="images/Katto/katto_gameplay.mp4" type="video/mp4"></video>
+              <div class="card__badges">
+                <span class="chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="work.katto.badge">Shipped on Steam</span></span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__title">Katto: Rising Tides</h3>
+                <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+              <p class="card__desc" data-i18n="work.katto.desc">3D platformer released on Steam by a team of 17. I designed a custom level-streaming system for runtime loading of game areas, and programmed the AI and combat of the two main enemies.</p>
+              <div class="card__foot">
+                <div class="chips">
+                  <span class="chip" data-i18n="work.katto.c1">GDWC finalist</span>
+                  <span class="chip" data-i18n="work.katto.c2">Featured on The Rookies</span>
+                </div>
+                <span class="card__stack">Unreal Engine 5 · C++</span>
+              </div>
+            </div>
+            <a class="card__link" href="katto.html"><span class="sr-only">Katto: Rising Tides</span></a>
+          </article>
+
+          <!-- Mordibonx -->
+          <article class="card card--s" data-reveal style="--d:.08s">
+            <div class="card__media">
+              <img src="images/ESAT-graphics_engine/enigne_pic.webp" alt="Mordibonx engine — deferred rendering scene with ImGui editor" loading="lazy" decoding="async" width="1036" height="960">
+              <video muted loop playsinline preload="none" aria-hidden="true"><source data-src="images/ESAT-graphics_engine/lights.mp4" type="video/mp4"></video>
+              <div class="card__badges">
+                <span class="chip" data-i18n="work.engine.badge">Custom engine</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__title">Mordibonx</h3>
+                <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+              <p class="card__desc" data-i18n="work.engine.desc">Rendering engine with forward and deferred pipelines, shadow mapping, ECS, a multithreaded job system and an ImGui editor.</p>
+              <div class="card__foot">
+                <span class="card__stack">C++ · OpenGL · GLSL</span>
+              </div>
+            </div>
+            <a class="card__link" href="engine.html"><span class="sr-only">Mordibonx</span></a>
+          </article>
+
+          <!-- Dipole -->
+          <article class="card card--s" data-reveal>
+            <div class="card__media">
+              <img src="images/Particles/particles_sim.webp" alt="Dipole particle simulation — charged particles around two poles" loading="lazy" decoding="async" width="970" height="898">
+              <video muted loop playsinline preload="none" aria-hidden="true"><source data-src="images/Particles/particles_simulation.mp4" type="video/mp4"></video>
+              <div class="card__badges">
+                <span class="chip chip--cyan" data-i18n="work.dipole.badge">1M particles</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__title" data-i18n="work.dipole.title">Dipole Particle Simulation</h3>
+                <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+              <p class="card__desc" data-i18n="work.dipole.desc">Up to one million charged particles simulated in real time in both CUDA and OpenCL, with zero-copy GPU/OpenGL interop.</p>
+              <div class="card__foot">
+                <span class="card__stack">C++ · CUDA · OpenCL</span>
+              </div>
+            </div>
+            <a class="card__link" href="dipole_sim.html"><span class="sr-only" data-i18n="work.dipole.title">Dipole Particle Simulation</span></a>
+          </article>
+
+          <!-- Multiplayer -->
+          <article class="card card--xl" data-reveal style="--d:.08s">
+            <div class="card__media">
+              <img src="images/MultiplayerGame/multiplayer_game.webp" alt="Unity and Unreal clients playing capture-the-flag on the same server" loading="lazy" decoding="async" width="798" height="738">
+              <video muted loop playsinline preload="none" aria-hidden="true"><source data-src="images/MultiplayerGame/multiplayer_gameplay.mp4" type="video/mp4"></video>
+              <div class="card__badges">
+                <span class="chip" data-i18n="work.mp.badge">Unity ⇄ Unreal</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__title" data-i18n="work.mp.title">Cross-Engine Multiplayer Shooter</h3>
+                <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+              <p class="card__desc" data-i18n="work.mp.desc">An authoritative C# server handling connections, game state and real-time sync, with Unreal and Unity clients playing capture-the-flag together in the same match.</p>
+              <div class="card__foot">
+                <div class="chips">
+                  <span class="chip" data-i18n="work.mp.c1">Authoritative server</span>
+                  <span class="chip" data-i18n="work.mp.c2">Exploit mitigation</span>
+                </div>
+                <span class="card__stack">C# · ENet · Unity · Unreal</span>
+              </div>
+            </div>
+            <a class="card__link" href="multiplayer_shooter.html"><span class="sr-only" data-i18n="work.mp.title">Cross-Engine Multiplayer Shooter</span></a>
+          </article>
+
+          <!-- Salamander -->
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="images/salamander/salamander.webp" alt="Procedural salamander with debug overlays for inverse kinematics and perception" loading="lazy" decoding="async" width="918" height="850">
+              <video muted loop playsinline preload="none" aria-hidden="true"><source data-src="images/salamander/salamander_gameplay.mp4" type="video/mp4"></video>
+              <div class="card__badges">
+                <span class="chip" data-i18n="work.sal.badge">Zero keyframes</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__title" data-i18n="work.sal.title">Procedural Salamander</h3>
+                <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+              <p class="card__desc" data-i18n="work.sal.desc">2D inverse kinematics, spring-mass physics and emergent predator–prey AI. A creature that feels alive without a single hand-made animation.</p>
+              <div class="card__foot">
+                <span class="card__stack">C++ · Raylib</span>
+              </div>
+            </div>
+            <a class="card__link" href="salamander.html"><span class="sr-only" data-i18n="work.sal.title">Procedural Salamander</span></a>
+          </article>
+
+          <!-- 2003 -->
+          <article class="card" data-reveal style="--d:.08s">
+            <div class="card__media" style="background:#fdecc8">
+              <img src="images/2003/2003_logo.webp" alt="2003 — game logo" loading="lazy" decoding="async" width="423" height="392" style="object-fit:contain">
+              <video muted loop playsinline preload="none" aria-hidden="true"><source data-src="images/2003/2003_gameplay.mp4" type="video/mp4"></video>
+              <div class="card__badges">
+                <span class="chip">iOS</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__title">2003</h3>
+                <span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+              <p class="card__desc" data-i18n="work.2003.desc">A minimalist tile puzzle for iPhone, obsessively polished: motion-based tutorials, seamless transitions and accessibility options.</p>
+              <div class="card__foot">
+                <span class="card__stack">Unity · C# · Xcode</span>
+              </div>
+            </div>
+            <a class="card__link" href="2003.html"><span class="sr-only">2003</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TOOLKIT ============================== -->
+    <section class="section" id="toolkit" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow" data-i18n="nav.toolkit">Skills</span>
+            <h2 class="section-head__title" data-i18n="tk.title">Technical <span class="accent">toolkit.</span></h2>
+          </div>
+          <p class="section-head__kicker" data-reveal style="--d:.08s" data-i18n="tk.kicker">Focused on low-level C++, real-time rendering and gameplay architecture.</p>
+        </div>
+
+        <div class="toolkit">
+          <div class="tk tk--half tk--pink" data-reveal>
+            <div class="tk__head">
+              <span class="tk__title"><span class="tk__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg></span><span data-i18n="tk.games">Game Development &amp; Engines</span></span>
+            </div>
+            <p data-i18n="tk.games.p">Gameplay systems, AI, custom level streaming, networking and multi-engine production.</p>
+            <div class="chips">
+              <span class="chip chip--pink">Unreal Engine 5</span>
+              <span class="chip chip--pink">Unity</span>
+              <span class="chip" data-i18n="tk.g.ai">Gameplay &amp; AI</span>
+              <span class="chip" data-i18n="tk.g.stream">Level Streaming</span>
+              <span class="chip" data-i18n="tk.g.net">ENet / UDP Networking</span>
+              <span class="chip" data-i18n="tk.g.ik">2D Inverse Kinematics</span>
+              <span class="chip">ECS</span>
+              <span class="chip">ImGui</span>
+            </div>
+          </div>
+
+          <div class="tk tk--half tk--cyan" data-reveal style="--d:.06s">
+            <div class="tk__head">
+              <span class="tk__title"><span class="tk__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><span data-i18n="tk.gfx">Graphics &amp; GPU Compute</span></span>
+            </div>
+            <p data-i18n="tk.gfx.p">Custom rendering pipelines, shaders and massively parallel GPU simulations.</p>
+            <div class="chips">
+              <span class="chip chip--pink">OpenGL</span>
+              <span class="chip">GLSL</span>
+              <span class="chip chip--cyan">CUDA</span>
+              <span class="chip chip--cyan">OpenCL</span>
+              <span class="chip" data-i18n="tk.gx.def">Deferred Rendering</span>
+              <span class="chip" data-i18n="tk.gx.shad">Shadow Mapping</span>
+              <span class="chip">RenderDoc</span>
+              <span class="chip">Raylib</span>
+            </div>
+          </div>
+
+          <div class="tk" data-reveal>
+            <div class="tk__head">
+              <span class="tk__title"><span class="tk__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 4l-4 16"/></svg></span><span data-i18n="tk.lang">Languages</span></span>
+            </div>
+            <div class="chips">
+              <span class="chip chip--pink">C++</span>
+              <span class="chip">C</span>
+              <span class="chip">C#</span>
+              <span class="chip">GLSL</span>
+              <span class="chip">Python</span>
+              <span class="chip">Lua</span>
+            </div>
+          </div>
+
+          <div class="tk" data-reveal style="--d:.06s">
+            <div class="tk__head">
+              <span class="tk__title"><span class="tk__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></span><span data-i18n="tk.core">Core Architecture</span></span>
+            </div>
+            <div class="chips">
+              <span class="chip" data-i18n="tk.c.mt">Multithreading</span>
+              <span class="chip" data-i18n="tk.c.jobs">Job Systems</span>
+              <span class="chip" data-i18n="tk.c.perf">Memory &amp; Performance</span>
+              <span class="chip" data-i18n="tk.c.sim">Real-Time Simulation</span>
+              <span class="chip">DO-178C / JSF AV C++</span>
+            </div>
+          </div>
+
+          <div class="tk" data-reveal style="--d:.12s">
+            <div class="tk__head">
+              <span class="tk__title"><span class="tk__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span><span data-i18n="tk.tools">Tools &amp; Workflow</span></span>
+            </div>
+            <div class="chips">
+              <span class="chip">Visual Studio</span>
+              <span class="chip">Rider</span>
+              <span class="chip">Git &amp; GitHub</span>
+              <span class="chip">Perforce</span>
+              <span class="chip">Xcode</span>
+              <span class="chip">Blender</span>
+              <span class="chip">VectorCAST</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== BACKGROUND ============================== -->
+    <section class="section" id="background" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow" data-i18n="nav.about">About</span>
+            <h2 class="section-head__title" data-i18n="bg.title">Background &amp; <span class="accent">journey.</span></h2>
+          </div>
+        </div>
+
+        <div class="about">
+          <div class="about__text" data-reveal>
+            <p data-i18n="bg.p1">I studied Game Programming for three years at <strong>ESAT Valencia</strong> and completed my <strong>BSc in Games Technology at Coventry University</strong>, building everything from custom C++ engines and GPU particle systems to a full commercial game on Steam.</p>
+            <p data-i18n="bg.p2">I’m driven by technical polish, clean architecture and frame-rate performance—creating games and interactive systems that feel immediate, fluid and rewarding to play.</p>
+            <p data-i18n="bg.p3">Currently, I also apply my C++ background as a Software Engineer at <strong>Embention</strong>, writing and verifying high-reliability C++ software.</p>
+            <div class="about__meta">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="bg.loc">Castellón de la Plana, Spain</span></span>
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-i18n="bg.langs">Spanish · Valencian · English</span></span>
+            </div>
+          </div>
+
+          <ol class="timeline">
+            <li class="tl tl--now" data-reveal>
+              <span class="tl__dot" aria-hidden="true"></span>
+              <div>
+                <span class="tl__when" data-i18n="tl.1.when">11/2025 — Present</span>
+                <h3 class="tl__title" data-i18n="tl.1.title">C++ Software Engineer <span class="chip tl__kind">Current role</span></h3>
+                <p class="tl__place" data-i18n="tl.1.place">Embention · Alicante, Spain</p>
+                <p class="tl__desc" data-i18n="tl.1.desc">Requirements-based C++ unit testing, JSF AV C++ and Python tooling for embedded flight-control systems (DO-178C).</p>
+              </div>
+            </li>
+            <li class="tl" data-reveal>
+              <span class="tl__dot" aria-hidden="true"></span>
+              <div>
+                <span class="tl__when">09/2024 — 04/2025</span>
+                <h3 class="tl__title" data-i18n="tl.2.title">BSc in Games Technology <span class="chip tl__kind">Education</span></h3>
+                <p class="tl__place">Coventry University · UK</p>
+                <p class="tl__desc" data-i18n="tl.2.desc">GPU computing with CUDA and OpenCL, cross-engine game networking and advanced C++.</p>
+              </div>
+            </li>
+            <li class="tl" data-reveal>
+              <span class="tl__dot" aria-hidden="true"></span>
+              <div>
+                <span class="tl__when">07/2024</span>
+                <h3 class="tl__title" data-i18n="tl.3.title">Shipped Katto: Rising Tides on Steam <span class="chip chip--pink tl__kind">Release</span></h3>
+                <p class="tl__place">Arcadia Games · Unreal Engine 5</p>
+                <p class="tl__desc" data-i18n="tl.3.desc">3D platformer built in seven months by a team of 17. GDWC finalist and featured on The Rookies.</p>
+              </div>
+            </li>
+            <li class="tl" data-reveal>
+              <span class="tl__dot" aria-hidden="true"></span>
+              <div>
+                <span class="tl__when">10/2021 — 07/2024</span>
+                <h3 class="tl__title" data-i18n="tl.4.title">HND in Computing (Games Programming) <span class="chip tl__kind">Education</span></h3>
+                <p class="tl__place" data-i18n="tl.4.place">ESAT · Valencia, Spain</p>
+                <p class="tl__desc" data-i18n="tl.4.desc">Three-year C and C++ specialisation in game architecture, custom OpenGL rendering and console/PC development.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section section--tight" id="contact" style="padding-top:0">
+      <div class="container">
+        <div class="contact" data-reveal>
+          <span class="eyebrow" data-i18n="nav.contact">Contact</span>
+          <h2 class="contact__title" data-i18n="contact.title">Let’s build something <span class="accent">great.</span></h2>
+
+          <div class="contact__row">
+            <div class="email">
+              <a class="link-underline" href="mailto:jaumebvj@gmail.com">jaumebvj@gmail.com</a>
+              <button class="copy" type="button" data-copy="jaumebvj@gmail.com" aria-label="Copy email" data-i18n-attr="aria-label:common.copy">
+                <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+                <span class="copy__tip" data-i18n="common.copied">Copied!</span>
+              </button>
+            </div>
+            <div class="contact__links">
+              <a class="btn" href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                LinkedIn
+              </a>
+              <a class="btn" href="https://github.com/jaumebv" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                GitHub
+              </a>
+              <a class="btn btn--primary" href="Jaume-Berbel-Resume.pdf" target="_blank" rel="noopener">
+                <span data-i18n="hero.cv">Download CV</span>
+                <svg class="arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <dl class="contact__grid">
+            <div><dt data-i18n="contact.based">Based in</dt><dd data-i18n="contact.based.v">Castellón, Spain</dd></div>
+            <div><dt data-i18n="contact.spec">Specialty</dt><dd data-i18n="contact.spec.v">Games · Graphics · C++</dd></div>
+            <div><dt data-i18n="contact.eng">Engines</dt><dd data-i18n="contact.eng.v">Unreal 5 · Unity · Custom</dd></div>
+            <div><dt data-i18n="contact.langs">Languages</dt><dd data-i18n="contact.langs.v">ES · VAL · EN</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span data-year>2026</span> Jaume Berbel</span>
+      <span class="mono" data-i18n="footer.built">Hand-built · HTML &amp; CSS · minimal by design</span>
+      <div class="footer__links">
+        <a href="https://github.com/jaumebv" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jaumeberbel/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="to-top" href="#top"><span data-i18n="footer.top">Back to top</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6M6 12l6-6 6 6"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
