@@ -299,8 +299,7 @@ html[lang="es"] .lang::before { transform: translateX(100%); }
 .card:hover { border-color: rgba(244, 184, 208, 0.24); }
 .card:hover::after { opacity: 1; }
 .card__link { position: absolute; inset: 0; z-index: 4; border-radius: inherit; }
-.card__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #070709; }
-.card--xl .card__media { aspect-ratio: 16 / 9; }
+.card__media { position: relative; height: clamp(240px, 23vw, 310px); overflow: hidden; background: #070709; }
 .card__media img, .card__media video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   transition: opacity 0.6s, transform 1.2s var(--ease-out);
@@ -598,7 +597,7 @@ html[lang="es"] .lang::before { transform: translateX(100%); }
   .section-head__kicker { justify-self: start; }
   .work-grid { grid-template-columns: 1fr; }
   .card, .card--xl, .card--s { grid-column: auto; }
-  .card--xl .card__media, .card__media { aspect-ratio: 16 / 10; }
+  .card--xl .card__media, .card__media { aspect-ratio: 16 / 10; height: auto; }
   .p-hero__grid, .p-overview, .feature { grid-template-columns: 1fr; }
   .feature:nth-child(even) .feature__text { order: 0; }
   .compare { grid-template-columns: 1fr; }
