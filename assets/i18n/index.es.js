@@ -65,7 +65,6 @@ window.I18N_ES = {
   "bg.p1": "Estudié Programación de Videojuegos durante tres años en <strong>ESAT Valencia</strong> y completé el <strong>BSc in Games Technology en Coventry University</strong>, desarrollando desde motores propios en C++ y sistemas de partículas en GPU hasta un juego comercial publicado en Steam.",
   "bg.p2": "Me mueve el pulido técnico, la arquitectura limpia y el rendimiento por frame: crear videojuegos y sistemas interactivos que se sientan inmediatos, fluidos y satisfactorios al jugar.",
   "bg.p3": "Actualmente también aplico mi base en C++ como Ingeniero de Software en <strong>Embention</strong>, desarrollando y verificando software C++ de alta fiabilidad.",
-  "bg.loc": "Castellón de la Plana, España",
   "bg.langs": "Español · Valenciano · Inglés",
 
   "tl.1.when": "11/2025 — Actualidad",
@@ -81,8 +80,8 @@ window.I18N_ES = {
   "tl.4.desc": "Especialización de tres años en C y C++, arquitectura de juegos, renderizado propio en OpenGL y desarrollo para PC y consola.",
 
   "contact.title": "Construyamos algo <span class=\"accent\">genial.</span>",
-  "contact.based": "Ubicación",
-  "contact.based.v": "Castellón, España",
+  "contact.based": "Formación",
+  "contact.based.v": "ESAT · Coventry Univ.",
   "contact.spec": "Especialidad",
   "contact.spec.v": "Videojuegos · Gráficos · C++",
   "contact.eng": "Motores",
